@@ -1,0 +1,9 @@
+{
+    "repoServerIp": "172.21.73.144",
+    "repoServerPort":  "30001",
+    "downloadServerPort": "30002",
+    "repoRootPath": "DEPLOYREPO",
+    "backendServerUrl": "",
+    "vncServerIp":"172.21.73.144",
+    "vncServerPort":"9191"
+}

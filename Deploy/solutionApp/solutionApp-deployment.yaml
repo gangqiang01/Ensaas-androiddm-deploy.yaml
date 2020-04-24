@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: solutionapp
+  name: solutionapp
+  namespace: androiddm
+spec:
+  selector:
+    matchLabels:
+      app: solutionapp
+  template:
+    metadata:
+      labels:
+        app: solutionapp
+    spec:
+      containers:
+      - name:  gq-solutionapp
+        image:  docker.io/gangqiang01/solutionapp-ensaas:1.0.9
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+       
+        resources:
+          limits:
+            cpu: 0.1     　　
+            memory: 256M
+            ephemeral-storage: 256M
+          requests:
+            cpu: 0.1
+            memory: 256M
+            ephemeral-storage: 256M
+      restartPolicy: Always
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: solutionapp
+  namespace: androiddm
+  labels:
+    app: solutionapp
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: solutionapp

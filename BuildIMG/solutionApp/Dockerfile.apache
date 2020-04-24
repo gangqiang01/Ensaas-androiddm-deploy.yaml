@@ -1,0 +1,8 @@
+FROM nimmis/alpine-apache
+MAINTAINER "androidDM"<gangqiang@advantech.com.cn>
+ADD ./video_player /web/html/video_player
+ADD ./light_control /web/html/light_control
+ADD ./power_control /web/html/power_control
+ADD ./scan_barcode /web/html/scan_barcode
+
+EXPOSE 80

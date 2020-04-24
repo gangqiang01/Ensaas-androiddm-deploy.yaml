@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: thirdplugin
+spec:
+  rules:
+  - host: thirdplugin.androiddm.eks001.en.internal
+    http:
+      paths:
+      - backend:
+          serviceName: solutionapp
+          servicePort: 80

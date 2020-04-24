@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LWM2M  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://openmobilealliance.org/tech/profiles/LWM2M.xsd">
+	<Object ObjectType="MODefinition">
+		<Name>Android Interface Control</Name>
+		<Description1>Description: Android Interface Control</Description1>
+		<ObjectID>40003</ObjectID>
+		<ObjectURN>urn:oma:lwm2m:x:40003</ObjectURN>
+		<MultipleInstances>Single</MultipleInstances>
+		<Mandatory>Optional</Mandatory>
+		<Resources>
+			<Item ID="27200">
+				<Name>Ctrl Home Button</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>Boolean</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[0: Disabled
+1: Enabled
+Enable / Disable Home Button]]></Description>
+			</Item>
+			<Item ID="27201">
+                <Name>Ctrl Back Button</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>Boolean</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[0: Disabled
+1: Enabled
+Enable / Disable Back Button]]></Description>
+            </Item>
+
+			<Item ID="27202">
+                <Name>Ctrl Timeicon</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>Boolean</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[0: Disabled
+1: Enabled
+Enable / Disable Time Icon]]></Description>
+            </Item>
+			
+			<Item ID="27203"><Name>Ctrl Navigationbar Color</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>Integer</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Get and Set Navigationbar Color]]></Description>
+	        </Item>
+			<Item ID="27204"><Name>Set Kiosk</Name>
+                <Operations>W</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Set Kiosk]]></Description>
+	        </Item>
+			<Item ID="27205"><Name>Set Bootanimation</Name>
+                <Operations>W</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Set Bootanimation]]></Description>
+            </Item>
+     	    <Item ID="27206"><Name>Deploy File</Name>
+                <Operations>W</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Deploy File]]></Description>
+            </Item>
+
+		</Resources>
+		<Description2></Description2>
+	</Object>
+</LWM2M>

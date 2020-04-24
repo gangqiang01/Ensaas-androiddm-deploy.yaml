@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LWM2M  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://openmobilealliance.org/tech/profiles/LWM2M.xsd">
+	<Object ObjectType="MODefinition">
+		<Name>Android System Control</Name>
+		<Description1>Description: Android System Control</Description1>
+		<ObjectID>40002</ObjectID>
+		<ObjectURN>urn:oma:lwm2m:x:40002</ObjectURN>
+		<MultipleInstances>Single</MultipleInstances>
+		<Mandatory>Optional</Mandatory>
+		<Resources>
+			<Item ID="27100">
+				<Name>Ctrl Autorotation</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>Boolean</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[0: Disabled
+1: Enabled
+Enable / Disable Autorotation]]></Description>
+			</Item>
+			<!--
+			<Item ID="27101">
+                <Name>Ctrl Largetext</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>Boolean</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[0: Disabled
+1: Enabled
+Enable / Disable Largetext]]></Description>
+            </Item>
+			-->
+
+		</Resources>
+		<Description2></Description2>
+	</Object>
+</LWM2M>
