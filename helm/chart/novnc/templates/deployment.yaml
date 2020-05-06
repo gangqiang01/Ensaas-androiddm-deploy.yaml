@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Chart.Name}}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.label}}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.label}}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.label}}
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecrets.name}}
+      containers:
+      - name: {{ .Chart.Name }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - name: {{ .Values.novncservice.name }}
+          containerPort: 9191
+          protocol: TCP
+        - name: {{ .Values.repeaterserverservice.name }}
+          containerPort: 5500
+          protocol: TCP
+        - name: {{ .Values.repeaterviewerservice.name }}
+          containerPort: 5901
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 0.1     　　
+            memory: 512M
+            ephemeral-storage: 768M
+          requests:
+            cpu: 0.1
+            memory: 256M
+            ephemeral-storage: 768M
+      

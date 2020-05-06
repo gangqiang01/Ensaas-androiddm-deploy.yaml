@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LWM2M  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://openmobilealliance.org/tech/profiles/LWM2M.xsd">
+	<Object ObjectType="MODefinition">
+		<Name>Android Security Control</Name>
+		<Description1>Description: Android Security Control</Description1>
+		<ObjectID>40005</ObjectID>
+		<ObjectURN>urn:oma:lwm2m:x:40005</ObjectURN>
+		<MultipleInstances>Single</MultipleInstances>
+		<Mandatory>Optional</Mandatory>
+		<Resources>
+			<Item ID="27400">
+				<Name>LockScreen</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>Boolean</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[0: Unlocked
+1: Locked
+Lock / Unlock Screen]]></Description>
+			</Item>
+			<Item ID="27401">
+                <Name>Ctrl Adb</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>Boolean</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[0: Disabled
+1: Enabled
+Enable / Disable Adb]]></Description>
+            </Item>
+			<Item ID="27402">
+                <Name>Start VncServer</Name>
+                <Operations>W</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Start VncServer with password]]></Description>
+            </Item>
+			<Item ID="27403">
+                <Name>Stop VncServer</Name>
+                <Operations>W</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Stop VncServer]]></Description>
+            </Item>
+            <Item ID="27404">
+                <Name>Ctrl WhitelistServer</Name>
+                <Operations>RW</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Ctrl WhitelistServer]]></Description>
+            </Item>
+		</Resources>
+		<Description2></Description2>
+	</Object>
+</LWM2M>

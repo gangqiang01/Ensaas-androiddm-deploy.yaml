@@ -1,0 +1,73 @@
+/*
+ * noVNC auto CSS
+ * Copyright (C) 2012 Joel Martin
+ * Copyright (C) 2017 Samuel Mannehed for Cendio AB
+ * noVNC is licensed under the MPL 2.0 (see LICENSE.txt)
+ * This file is licensed under the 2-Clause BSD license (see LICENSE.txt).
+ */
+
+
+#noVNC_content{
+    border:1px solid #ddd;
+    height:60rem;
+    position:relative;
+    background-color:#eaeaea;
+}
+
+#VNC_closed{
+    position: absolute;
+    color:#d3104b;
+    padding:5px;
+    right:3px;
+    top:-4px;
+    cursor: pointer;
+}
+
+#noVNC_status_bar {
+    width: 100%;
+    text-align: center;
+}
+
+#noVNC_status {
+    color: #fff;
+    font: bold 12px Helvetica;
+    margin: auto;
+}
+
+.noVNC_status_normal {
+    background: linear-gradient(#b2bdcd 0%,#899cb3 49%,#7e93af 51%,#6e84a3 100%);
+}
+
+.noVNC_status_error {
+    background: linear-gradient(#c83737 0%,#899cb3 49%,#7e93af 51%,#6e84a3 100%);
+}
+
+.noVNC_status_warn {
+    background: linear-gradient(#b4b41e 0%,#899cb3 49%,#7e93af 51%,#6e84a3 100%);
+}
+
+.noNVC_shown {
+    display: inline;
+}
+.noVNC_hidden {
+    display: none;
+}
+
+#noVNC_left_dummy_elem {
+     flex: 1;
+}
+
+#VNC_enter .VNC_title{
+    color:#337ab7;
+    margin-bottom:20px;
+}
+
+#VNC_enter{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+}
+
+
+  

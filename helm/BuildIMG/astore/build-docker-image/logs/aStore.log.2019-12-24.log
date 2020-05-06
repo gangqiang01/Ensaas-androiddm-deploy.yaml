@@ -1,0 +1,611 @@
+2019-12-24 15:30:08.974 [main] INFO  com.m2m.management.ManagementApplication - Starting ManagementApplication v0.0.1-SNAPSHOT on 01a63bdfac27 with PID 44 (/root/adv/astore.jar started by root in /root/adv)
+2019-12-24 15:30:09.009 [main] INFO  com.m2m.management.ManagementApplication - No active profile set, falling back to default profiles: default
+2019-12-24 15:30:14.103 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-12-24 15:30:14.517 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 374ms. Found 6 repository interfaces.
+2019-12-24 15:30:18.113 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3276506b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-24 15:30:18.213 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.hateoas.config.HateoasConfiguration' of type [org.springframework.hateoas.config.HateoasConfiguration$$EnhancerBySpringCGLIB$$b1f69d9d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-24 15:30:20.651 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 30019 (http)
+2019-12-24 15:30:20.814 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-30019"]
+2019-12-24 15:30:20.965 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-24 15:30:20.966 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-12-24 15:30:21.049 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-12-24 15:30:22.032 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-24 15:30:22.033 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 12634 ms
+2019-12-24 15:30:23.378 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-12-24 15:30:23.849 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-12-24 15:30:24.290 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-12-24 15:30:24.595 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-12-24 15:30:24.602 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-12-24 15:30:25.165 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-12-24 15:30:26.109 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2019-12-24 15:30:26.169 [main] INFO  o.h.engine.jdbc.env.internal.LobCreatorBuilderImpl - HHH000422: Disabling contextual LOB creation as connection was null
+2019-12-24 15:30:26.188 [main] INFO  org.hibernate.type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@3b6d844d
+2019-12-24 15:30:28.846 [main] DEBUG org.hibernate.SQL - create table public.repo (rid int8 not null, darkname varchar(255) not null, description varchar(32), reponame varchar(255) not null, ts int8, rtid int8 not null, uid int8 not null, primary key (rid))
+2019-12-24 15:30:28.878 [main] DEBUG org.hibernate.SQL - create table public.repoapps (raid int8 not null, address varchar(255), description varchar(255), filename varchar(255) not null, license varchar(255), pkgname varchar(255) not null, summary varchar(255), ts int8, versioncode varchar(255), versionname varchar(255) not null, websit varchar(255), rid int8, primary key (raid))
+2019-12-24 15:30:28.903 [main] DEBUG org.hibernate.SQL - create table public.repobsps (rbid int8 not null, address varchar(255) not null, boardname varchar(255) not null, description varchar(255), ts int8, versionname varchar(255) not null, rid int8, primary key (rbid))
+2019-12-24 15:30:28.927 [main] DEBUG org.hibernate.SQL - create table public.repofiles (rfid int8 not null, address varchar(255) not null, description varchar(255), filename varchar(255) not null, format varchar(255) not null, ts int8, type varchar(255) not null, rid int8, primary key (rfid))
+2019-12-24 15:30:28.950 [main] DEBUG org.hibernate.SQL - create table public.repotype (rtid int8 not null, ts int8, typename varchar(255) not null, primary key (rtid))
+2019-12-24 15:30:28.967 [main] DEBUG org.hibernate.SQL - alter table public.repo drop constraint UK_n6la5ee0xwcmqddhnrdsbydww
+2019-12-24 15:30:28.976 [main] DEBUG org.hibernate.SQL - alter table public.repo add constraint UK_n6la5ee0xwcmqddhnrdsbydww unique (rtid)
+2019-12-24 15:30:28.989 [main] DEBUG org.hibernate.SQL - alter table public.repo drop constraint UK_c7k4ma4go27xfaq8cl7kymdbb
+2019-12-24 15:30:28.991 [main] DEBUG org.hibernate.SQL - alter table public.repo add constraint UK_c7k4ma4go27xfaq8cl7kymdbb unique (reponame)
+2019-12-24 15:30:29.004 [main] DEBUG org.hibernate.SQL - alter table public.repofiles drop constraint UK_2koj7o6t7wi1yhfdnh2yinsew
+2019-12-24 15:30:29.007 [main] DEBUG org.hibernate.SQL - alter table public.repofiles add constraint UK_2koj7o6t7wi1yhfdnh2yinsew unique (filename)
+2019-12-24 15:30:29.020 [main] DEBUG org.hibernate.SQL - alter table public.repotype drop constraint UK_fn3jidx15tvsu2wes1d6glf50
+2019-12-24 15:30:29.022 [main] DEBUG org.hibernate.SQL - alter table public.repotype add constraint UK_fn3jidx15tvsu2wes1d6glf50 unique (typename)
+2019-12-24 15:30:29.191 [main] DEBUG org.hibernate.SQL - create sequence repo_rid_seq start 1 increment 1
+2019-12-24 15:30:29.197 [main] DEBUG org.hibernate.SQL - create sequence repoapps_raid_seq start 1 increment 1
+2019-12-24 15:30:29.202 [main] DEBUG org.hibernate.SQL - create sequence repobsps_rbid_seq start 1 increment 1
+2019-12-24 15:30:29.208 [main] DEBUG org.hibernate.SQL - create sequence repofiles_rfid_seq start 1 increment 1
+2019-12-24 15:30:29.214 [main] DEBUG org.hibernate.SQL - create sequence repotype_rtid_seq start 1 increment 1
+2019-12-24 15:30:29.220 [main] DEBUG org.hibernate.SQL - alter table public.repo add constraint FK5h1g0yvo38otvg2w5kic789le foreign key (rtid) references public.repotype
+2019-12-24 15:30:29.227 [main] DEBUG org.hibernate.SQL - alter table public.repo add constraint FKm3yt33inntf9p52sa188rjah5 foreign key (uid) references public.aimuser
+2019-12-24 15:30:29.233 [main] DEBUG org.hibernate.SQL - alter table public.repoapps add constraint FKlawcp6bfgipospt9iiyxddepv foreign key (rid) references public.repo
+2019-12-24 15:30:29.240 [main] DEBUG org.hibernate.SQL - alter table public.repobsps add constraint FK8nxi8v4mltp3lqmyiy66nyok3 foreign key (rid) references public.repo
+2019-12-24 15:30:29.246 [main] DEBUG org.hibernate.SQL - alter table public.repofiles add constraint FKks7igevovj1pdte88gluaoemm foreign key (rid) references public.repo
+2019-12-24 15:30:29.258 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-12-24 15:30:34.483 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-24 15:30:34.725 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-12-24 15:30:35.325 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [aStore/index.html]
+2019-12-24 15:30:36.750 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-30019"]
+2019-12-24 15:30:36.768 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-12-24 15:30:36.840 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 30019 (http) with context path ''
+2019-12-24 15:30:36.848 [main] INFO  com.m2m.management.ManagementApplication - Started ManagementApplication in 29.714 seconds (JVM running for 32.651)
+2019-12-24 15:30:36.948 [main] INFO  o.h.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2019-12-24 15:30:37.438 [main] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_, user0_.name as name2_0_, user0_.passwd as passwd3_0_, user0_.ts as ts4_0_ from public.aimuser user0_ where user0_.name=?
+2019-12-24 15:30:37.460 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [admin]
+2019-12-24 15:30:37.564 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_, repotype0_.ts as ts2_5_, repotype0_.typename as typename3_5_ from public.repotype repotype0_ where repotype0_.typename=?
+2019-12-24 15:30:37.566 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [appStore]
+2019-12-24 15:30:37.621 [main] DEBUG org.hibernate.SQL - select nextval ('repotype_rtid_seq')
+2019-12-24 15:30:37.729 [main] DEBUG org.hibernate.SQL - insert into public.repotype (ts, typename, rtid) values (?, ?, ?)
+2019-12-24 15:30:37.732 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1577172637569]
+2019-12-24 15:30:37.733 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [appStore]
+2019-12-24 15:30:37.734 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [BIGINT] - [1]
+2019-12-24 15:30:37.748 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_, repotype0_.ts as ts2_5_, repotype0_.typename as typename3_5_ from public.repotype repotype0_ where repotype0_.typename=?
+2019-12-24 15:30:37.750 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [bspStore]
+2019-12-24 15:30:37.754 [main] DEBUG org.hibernate.SQL - select nextval ('repotype_rtid_seq')
+2019-12-24 15:30:37.757 [main] DEBUG org.hibernate.SQL - insert into public.repotype (ts, typename, rtid) values (?, ?, ?)
+2019-12-24 15:30:37.758 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1577172637752]
+2019-12-24 15:30:37.759 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [bspStore]
+2019-12-24 15:30:37.760 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [BIGINT] - [2]
+2019-12-24 15:30:37.766 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_, repotype0_.ts as ts2_5_, repotype0_.typename as typename3_5_ from public.repotype repotype0_ where repotype0_.typename=?
+2019-12-24 15:30:37.768 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [fileStore]
+2019-12-24 15:30:37.772 [main] DEBUG org.hibernate.SQL - select nextval ('repotype_rtid_seq')
+2019-12-24 15:30:37.775 [main] DEBUG org.hibernate.SQL - insert into public.repotype (ts, typename, rtid) values (?, ?, ?)
+2019-12-24 15:30:37.776 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1577172637771]
+2019-12-24 15:30:37.777 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [fileStore]
+2019-12-24 15:30:37.777 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [BIGINT] - [3]
+2019-12-24 15:30:37.788 [main] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_, repo0_.darkname as darkname2_1_, repo0_.description as descript3_1_, repo0_.reponame as reponame4_1_, repo0_.rtid as rtid6_1_, repo0_.ts as ts5_1_, repo0_.uid as uid7_1_ from public.repo repo0_ where repo0_.reponame=?
+2019-12-24 15:30:37.790 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [AndroidApp]
+2019-12-24 15:30:37.794 [main] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_, user0_.name as name2_0_, user0_.passwd as passwd3_0_, user0_.ts as ts4_0_ from public.aimuser user0_ where user0_.name=?
+2019-12-24 15:30:37.796 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [admin]
+2019-12-24 15:30:37.800 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_, repotype0_.ts as ts2_5_, repotype0_.typename as typename3_5_ from public.repotype repotype0_ where repotype0_.typename=?
+2019-12-24 15:30:37.801 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [appStore]
+2019-12-24 15:30:37.817 [main] DEBUG org.hibernate.SQL - select nextval ('repo_rid_seq')
+2019-12-24 15:30:37.823 [main] DEBUG org.hibernate.SQL - insert into public.repo (darkname, description, reponame, rtid, ts, uid, rid) values (?, ?, ?, ?, ?, ?, ?)
+2019-12-24 15:30:37.824 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [a8340e5fbd10aa7727195fb239c0a902]
+2019-12-24 15:30:37.825 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [store AndroidApp]
+2019-12-24 15:30:37.826 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [AndroidApp]
+2019-12-24 15:30:37.827 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [4] as [BIGINT] - [1]
+2019-12-24 15:30:37.827 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [5] as [BIGINT] - [1577172637808]
+2019-12-24 15:30:37.828 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [6] as [BIGINT] - [1]
+2019-12-24 15:30:37.829 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [7] as [BIGINT] - [1]
+2019-12-24 15:30:37.837 [main] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_, repo0_.darkname as darkname2_1_, repo0_.description as descript3_1_, repo0_.reponame as reponame4_1_, repo0_.rtid as rtid6_1_, repo0_.ts as ts5_1_, repo0_.uid as uid7_1_ from public.repo repo0_ where repo0_.reponame=?
+2019-12-24 15:30:37.838 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [AndroidBsp]
+2019-12-24 15:30:37.843 [main] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_, user0_.name as name2_0_, user0_.passwd as passwd3_0_, user0_.ts as ts4_0_ from public.aimuser user0_ where user0_.name=?
+2019-12-24 15:30:37.844 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [admin]
+2019-12-24 15:30:37.849 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_, repotype0_.ts as ts2_5_, repotype0_.typename as typename3_5_ from public.repotype repotype0_ where repotype0_.typename=?
+2019-12-24 15:30:37.850 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [bspStore]
+2019-12-24 15:30:37.854 [main] DEBUG org.hibernate.SQL - select nextval ('repo_rid_seq')
+2019-12-24 15:30:37.858 [main] DEBUG org.hibernate.SQL - insert into public.repo (darkname, description, reponame, rtid, ts, uid, rid) values (?, ?, ?, ?, ?, ?, ?)
+2019-12-24 15:30:37.859 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [7a192df602c49951eb8b26ac3464752f]
+2019-12-24 15:30:37.859 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [store AndroidBsp]
+2019-12-24 15:30:37.860 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [AndroidBsp]
+2019-12-24 15:30:37.860 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [4] as [BIGINT] - [2]
+2019-12-24 15:30:37.861 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [5] as [BIGINT] - [1577172637853]
+2019-12-24 15:30:37.861 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [6] as [BIGINT] - [1]
+2019-12-24 15:30:37.862 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [7] as [BIGINT] - [2]
+2019-12-24 15:30:37.868 [main] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_, repo0_.darkname as darkname2_1_, repo0_.description as descript3_1_, repo0_.reponame as reponame4_1_, repo0_.rtid as rtid6_1_, repo0_.ts as ts5_1_, repo0_.uid as uid7_1_ from public.repo repo0_ where repo0_.reponame=?
+2019-12-24 15:30:37.869 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [AndroidFile]
+2019-12-24 15:30:37.874 [main] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_, user0_.name as name2_0_, user0_.passwd as passwd3_0_, user0_.ts as ts4_0_ from public.aimuser user0_ where user0_.name=?
+2019-12-24 15:30:37.875 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [admin]
+2019-12-24 15:30:37.880 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_, repotype0_.ts as ts2_5_, repotype0_.typename as typename3_5_ from public.repotype repotype0_ where repotype0_.typename=?
+2019-12-24 15:30:37.881 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [fileStore]
+2019-12-24 15:30:37.886 [main] DEBUG org.hibernate.SQL - select nextval ('repo_rid_seq')
+2019-12-24 15:30:37.889 [main] DEBUG org.hibernate.SQL - insert into public.repo (darkname, description, reponame, rtid, ts, uid, rid) values (?, ?, ?, ?, ?, ?, ?)
+2019-12-24 15:30:37.890 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [01c8794a94ad4d1eac4e7eaf191a1291]
+2019-12-24 15:30:37.891 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [store AndroidFile]
+2019-12-24 15:30:37.891 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [AndroidFile]
+2019-12-24 15:30:37.892 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [4] as [BIGINT] - [3]
+2019-12-24 15:30:37.893 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [5] as [BIGINT] - [1577172637884]
+2019-12-24 15:30:37.893 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [6] as [BIGINT] - [1]
+2019-12-24 15:30:37.894 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [7] as [BIGINT] - [3]
+2019-12-24 15:33:34.919 [main] INFO  com.m2m.management.ManagementApplication - Starting ManagementApplication v0.0.1-SNAPSHOT on 01a63bdfac27 with PID 48 (/root/adv/astore.jar started by root in /root/adv)
+2019-12-24 15:33:34.945 [main] INFO  com.m2m.management.ManagementApplication - No active profile set, falling back to default profiles: default
+2019-12-24 15:33:41.622 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-12-24 15:33:42.458 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 743ms. Found 6 repository interfaces.
+2019-12-24 15:33:45.487 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$29db3d28] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-24 15:33:45.579 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.hateoas.config.HateoasConfiguration' of type [org.springframework.hateoas.config.HateoasConfiguration$$EnhancerBySpringCGLIB$$a95b8a5a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-24 15:33:47.687 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 30019 (http)
+2019-12-24 15:33:47.755 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-30019"]
+2019-12-24 15:33:47.809 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-24 15:33:47.810 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-12-24 15:33:48.117 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-12-24 15:33:48.399 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-24 15:33:48.400 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 12819 ms
+2019-12-24 15:33:49.360 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-12-24 15:33:49.713 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-12-24 15:33:50.014 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-12-24 15:33:50.334 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-12-24 15:33:50.340 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-12-24 15:33:50.995 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-12-24 15:33:52.022 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2019-12-24 15:33:52.081 [main] INFO  o.h.engine.jdbc.env.internal.LobCreatorBuilderImpl - HHH000422: Disabling contextual LOB creation as connection was null
+2019-12-24 15:33:52.099 [main] INFO  org.hibernate.type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@1e16c0aa
+2019-12-24 15:33:55.093 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-12-24 15:33:59.852 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-24 15:34:00.077 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-12-24 15:34:00.624 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [aStore/index.html]
+2019-12-24 15:34:01.770 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-30019"]
+2019-12-24 15:34:01.797 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-12-24 15:34:01.870 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 30019 (http) with context path ''
+2019-12-24 15:34:01.880 [main] INFO  com.m2m.management.ManagementApplication - Started ManagementApplication in 29.213 seconds (JVM running for 34.211)
+2019-12-24 15:34:01.970 [main] INFO  o.h.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2019-12-24 15:34:02.419 [main] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_, user0_.name as name2_0_, user0_.passwd as passwd3_0_, user0_.ts as ts4_0_ from public.aimuser user0_ where user0_.name=?
+2019-12-24 15:34:02.439 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [admin]
+2019-12-24 15:34:02.531 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_, repotype0_.ts as ts2_5_, repotype0_.typename as typename3_5_ from public.repotype repotype0_ where repotype0_.typename=?
+2019-12-24 15:34:02.533 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [appStore]
+2019-12-24 15:34:02.538 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_, repotype0_.ts as ts2_5_, repotype0_.typename as typename3_5_ from public.repotype repotype0_ where repotype0_.typename=?
+2019-12-24 15:34:02.539 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [bspStore]
+2019-12-24 15:34:02.543 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_, repotype0_.ts as ts2_5_, repotype0_.typename as typename3_5_ from public.repotype repotype0_ where repotype0_.typename=?
+2019-12-24 15:34:02.544 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [fileStore]
+2019-12-24 15:34:02.554 [main] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_, repo0_.darkname as darkname2_1_, repo0_.description as descript3_1_, repo0_.reponame as reponame4_1_, repo0_.rtid as rtid6_1_, repo0_.ts as ts5_1_, repo0_.uid as uid7_1_ from public.repo repo0_ where repo0_.reponame=?
+2019-12-24 15:34:02.556 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [AndroidApp]
+2019-12-24 15:34:02.565 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 15:34:02.567 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 15:34:02.583 [main] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_0_, user0_.name as name2_0_0_, user0_.passwd as passwd3_0_0_, user0_.ts as ts4_0_0_ from public.aimuser user0_ where user0_.uid=?
+2019-12-24 15:34:02.584 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 15:34:02.589 [main] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_, repo0_.darkname as darkname2_1_, repo0_.description as descript3_1_, repo0_.reponame as reponame4_1_, repo0_.rtid as rtid6_1_, repo0_.ts as ts5_1_, repo0_.uid as uid7_1_ from public.repo repo0_ where repo0_.reponame=?
+2019-12-24 15:34:02.590 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [AndroidBsp]
+2019-12-24 15:34:02.593 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 15:34:02.593 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [2]
+2019-12-24 15:34:02.596 [main] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_0_, user0_.name as name2_0_0_, user0_.passwd as passwd3_0_0_, user0_.ts as ts4_0_0_ from public.aimuser user0_ where user0_.uid=?
+2019-12-24 15:34:02.598 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 15:34:02.603 [main] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_, repo0_.darkname as darkname2_1_, repo0_.description as descript3_1_, repo0_.reponame as reponame4_1_, repo0_.rtid as rtid6_1_, repo0_.ts as ts5_1_, repo0_.uid as uid7_1_ from public.repo repo0_ where repo0_.reponame=?
+2019-12-24 15:34:02.604 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [AndroidFile]
+2019-12-24 15:34:02.607 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 15:34:02.608 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [3]
+2019-12-24 15:34:02.611 [main] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_0_, user0_.name as name2_0_0_, user0_.passwd as passwd3_0_0_, user0_.ts as ts4_0_0_ from public.aimuser user0_ where user0_.uid=?
+2019-12-24 15:34:02.612 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 15:38:07.939 [http-nio-30019-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-24 15:38:07.942 [http-nio-30019-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-12-24 15:38:08.009 [http-nio-30019-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 67 ms
+2019-12-24 15:38:15.404 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_, user0_.name as name2_0_, user0_.passwd as passwd3_0_, user0_.ts as ts4_0_ from public.aimuser user0_ where user0_.name=?
+2019-12-24 15:38:15.415 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [admin]
+2019-12-24 15:38:15.476 [http-nio-30019-exec-7] INFO  com.m2m.management.controller.LoginController - admin
+2019-12-24 15:38:17.309 [http-nio-30019-exec-10] INFO  com.m2m.management.controller.UserController - getUser by keywords: 
+2019-12-24 15:38:17.330 [http-nio-30019-exec-9] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_, repo0_.darkname as darkname2_1_, repo0_.description as descript3_1_, repo0_.reponame as reponame4_1_, repo0_.rtid as rtid6_1_, repo0_.ts as ts5_1_, repo0_.uid as uid7_1_ from public.repo repo0_ where repo0_.reponame like ? order by repo0_.ts desc limit ?
+2019-12-24 15:38:17.333 [http-nio-30019-exec-9] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 15:38:17.337 [http-nio-30019-exec-9] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 15:38:17.338 [http-nio-30019-exec-9] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [3]
+2019-12-24 15:38:17.341 [http-nio-30019-exec-9] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_0_, user0_.name as name2_0_0_, user0_.passwd as passwd3_0_0_, user0_.ts as ts4_0_0_ from public.aimuser user0_ where user0_.uid=?
+2019-12-24 15:38:17.341 [http-nio-30019-exec-9] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 15:38:17.344 [http-nio-30019-exec-9] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 15:38:17.345 [http-nio-30019-exec-9] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [2]
+2019-12-24 15:38:17.349 [http-nio-30019-exec-9] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 15:38:17.350 [http-nio-30019-exec-9] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 15:38:17.358 [http-nio-30019-exec-1] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_, repotype0_.ts as ts2_5_, repotype0_.typename as typename3_5_ from public.repotype repotype0_ where repotype0_.typename like ? order by repotype0_.ts desc limit ?
+2019-12-24 15:38:17.361 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 15:38:17.362 [http-nio-30019-exec-10] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_, user0_.name as name2_0_, user0_.passwd as passwd3_0_, user0_.ts as ts4_0_ from public.aimuser user0_ where user0_.name like ? order by user0_.ts asc limit ?
+2019-12-24 15:38:17.386 [http-nio-30019-exec-10] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 15:38:17.454 [http-nio-30019-exec-10] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.aimuser user0_
+2019-12-24 15:38:17.455 [http-nio-30019-exec-9] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repo repo0_
+2019-12-24 16:08:16.792 [http-nio-30019-exec-6] INFO  com.m2m.management.controller.RepoAppsController - repoapp:
+2019-12-24 16:08:16.811 [http-nio-30019-exec-6] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.filename like ? order by repoapp0_.ts desc limit ?
+2019-12-24 16:08:16.823 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:08:16.827 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_, repo0_.darkname as darkname2_1_, repo0_.description as descript3_1_, repo0_.reponame as reponame4_1_, repo0_.rtid as rtid6_1_, repo0_.ts as ts5_1_, repo0_.uid as uid7_1_ from public.repo repo0_ where repo0_.reponame like ? order by repo0_.ts desc limit ?
+2019-12-24 16:08:16.836 [http-nio-30019-exec-6] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repoapps repoapp0_
+2019-12-24 16:08:16.843 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:08:16.855 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:08:16.858 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [3]
+2019-12-24 16:08:16.863 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_0_, user0_.name as name2_0_0_, user0_.passwd as passwd3_0_0_, user0_.ts as ts4_0_0_ from public.aimuser user0_ where user0_.uid=?
+2019-12-24 16:08:16.864 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:08:16.869 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:08:16.870 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [2]
+2019-12-24 16:08:16.873 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:08:16.873 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:08:16.880 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repo repo0_
+2019-12-24 16:08:18.059 [http-nio-30019-exec-8] DEBUG org.hibernate.SQL - select repobsp0_.rbid as rbid1_3_, repobsp0_.address as address2_3_, repobsp0_.boardname as boardnam3_3_, repobsp0_.description as descript4_3_, repobsp0_.rid as rid7_3_, repobsp0_.ts as ts5_3_, repobsp0_.versionname as versionn6_3_ from public.repobsps repobsp0_ where repobsp0_.boardname like ? order by repobsp0_.ts desc limit ?
+2019-12-24 16:08:18.063 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:08:18.072 [http-nio-30019-exec-8] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repobsps repobsp0_
+2019-12-24 16:08:19.249 [http-nio-30019-exec-10] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_, repo0_.darkname as darkname2_1_, repo0_.description as descript3_1_, repo0_.reponame as reponame4_1_, repo0_.rtid as rtid6_1_, repo0_.ts as ts5_1_, repo0_.uid as uid7_1_ from public.repo repo0_ where repo0_.reponame like ? order by repo0_.ts desc limit ?
+2019-12-24 16:08:19.252 [http-nio-30019-exec-1] INFO  com.m2m.management.controller.RepoFileController - repofile:
+2019-12-24 16:08:19.255 [http-nio-30019-exec-10] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:08:19.260 [http-nio-30019-exec-10] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:08:19.261 [http-nio-30019-exec-10] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [3]
+2019-12-24 16:08:19.263 [http-nio-30019-exec-1] DEBUG org.hibernate.SQL - select repofile0_.rfid as rfid1_4_, repofile0_.address as address2_4_, repofile0_.description as descript3_4_, repofile0_.filename as filename4_4_, repofile0_.format as format5_4_, repofile0_.rid as rid8_4_, repofile0_.ts as ts6_4_, repofile0_.type as type7_4_ from public.repofiles repofile0_ where repofile0_.type=? and (repofile0_.filename like ?) order by repofile0_.ts desc limit ?
+2019-12-24 16:08:19.268 [http-nio-30019-exec-10] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_0_, user0_.name as name2_0_0_, user0_.passwd as passwd3_0_0_, user0_.ts as ts4_0_0_ from public.aimuser user0_ where user0_.uid=?
+2019-12-24 16:08:19.270 [http-nio-30019-exec-10] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:08:19.271 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [bootanimation]
+2019-12-24 16:08:19.273 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [%%]
+2019-12-24 16:08:19.277 [http-nio-30019-exec-10] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:08:19.278 [http-nio-30019-exec-10] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [2]
+2019-12-24 16:08:19.284 [http-nio-30019-exec-10] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:08:19.285 [http-nio-30019-exec-10] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:08:19.287 [http-nio-30019-exec-1] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repofiles repofile0_
+2019-12-24 16:08:19.290 [http-nio-30019-exec-10] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repo repo0_
+2019-12-24 16:10:43.382 [http-nio-30019-exec-9] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_, user0_.name as name2_0_, user0_.passwd as passwd3_0_, user0_.ts as ts4_0_ from public.aimuser user0_ where user0_.name=?
+2019-12-24 16:10:43.384 [http-nio-30019-exec-9] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [admin]
+2019-12-24 16:10:43.389 [http-nio-30019-exec-9] INFO  com.m2m.management.controller.LoginController - admin
+2019-12-24 16:10:44.042 [http-nio-30019-exec-4] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_, repo0_.darkname as darkname2_1_, repo0_.description as descript3_1_, repo0_.reponame as reponame4_1_, repo0_.rtid as rtid6_1_, repo0_.ts as ts5_1_, repo0_.uid as uid7_1_ from public.repo repo0_ where repo0_.reponame like ? order by repo0_.ts desc limit ?
+2019-12-24 16:10:44.045 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:10:44.050 [http-nio-30019-exec-4] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:10:44.051 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [3]
+2019-12-24 16:10:44.057 [http-nio-30019-exec-4] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_0_, user0_.name as name2_0_0_, user0_.passwd as passwd3_0_0_, user0_.ts as ts4_0_0_ from public.aimuser user0_ where user0_.uid=?
+2019-12-24 16:10:44.059 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:10:44.065 [http-nio-30019-exec-4] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:10:44.066 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [2]
+2019-12-24 16:10:44.069 [http-nio-30019-exec-4] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:10:44.072 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:10:44.078 [http-nio-30019-exec-4] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repo repo0_
+2019-12-24 16:10:44.116 [http-nio-30019-exec-2] INFO  com.m2m.management.controller.UserController - getUser by keywords: 
+2019-12-24 16:10:44.120 [http-nio-30019-exec-2] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_, user0_.name as name2_0_, user0_.passwd as passwd3_0_, user0_.ts as ts4_0_ from public.aimuser user0_ where user0_.name like ? order by user0_.ts asc limit ?
+2019-12-24 16:10:44.122 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:10:44.123 [http-nio-30019-exec-3] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_, repotype0_.ts as ts2_5_, repotype0_.typename as typename3_5_ from public.repotype repotype0_ where repotype0_.typename like ? order by repotype0_.ts desc limit ?
+2019-12-24 16:10:44.126 [http-nio-30019-exec-3] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:10:44.129 [http-nio-30019-exec-2] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.aimuser user0_
+2019-12-24 16:10:47.430 [http-nio-30019-exec-6] INFO  com.m2m.management.controller.RepoAppsController - repoapp:
+2019-12-24 16:10:47.433 [http-nio-30019-exec-6] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.filename like ? order by repoapp0_.ts desc limit ?
+2019-12-24 16:10:47.435 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:10:47.441 [http-nio-30019-exec-8] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_, repo0_.darkname as darkname2_1_, repo0_.description as descript3_1_, repo0_.reponame as reponame4_1_, repo0_.rtid as rtid6_1_, repo0_.ts as ts5_1_, repo0_.uid as uid7_1_ from public.repo repo0_ where repo0_.reponame like ? order by repo0_.ts desc limit ?
+2019-12-24 16:10:47.444 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:10:47.445 [http-nio-30019-exec-6] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repoapps repoapp0_
+2019-12-24 16:10:47.448 [http-nio-30019-exec-8] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:10:47.450 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [3]
+2019-12-24 16:10:47.459 [http-nio-30019-exec-8] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_0_, user0_.name as name2_0_0_, user0_.passwd as passwd3_0_0_, user0_.ts as ts4_0_0_ from public.aimuser user0_ where user0_.uid=?
+2019-12-24 16:10:47.460 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:10:47.465 [http-nio-30019-exec-8] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:10:47.466 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [2]
+2019-12-24 16:10:47.469 [http-nio-30019-exec-8] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:10:47.472 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:10:47.478 [http-nio-30019-exec-8] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repo repo0_
+2019-12-24 16:11:08.245 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.pkgname=? and repoapp0_.versionname=? and repoapp0_.filename=?
+2019-12-24 16:11:08.248 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [com.advantech.launcherdemo]
+2019-12-24 16:11:08.249 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [1.0]
+2019-12-24 16:11:08.250 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [AdvLauncherDemo_v1.apk]
+2019-12-24 16:11:08.255 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.pkgname=? and repoapp0_.versionname=? and repoapp0_.filename=?
+2019-12-24 16:11:08.256 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [com.advantech.launcherdemo]
+2019-12-24 16:11:08.256 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [1.0]
+2019-12-24 16:11:08.257 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [AdvLauncherDemo_v1.apk]
+2019-12-24 16:11:08.271 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:11:08.272 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:11:08.319 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select nextval ('repoapps_raid_seq')
+2019-12-24 16:11:08.401 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - insert into public.repoapps (address, description, filename, license, pkgname, rid, summary, ts, versioncode, versionname, websit, raid) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2019-12-24 16:11:08.402 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [/DEPLOYREPO/a8340e5fbd10aa7727195fb239c0a902/com.advantech.launcherdemo/1.0]
+2019-12-24 16:11:08.403 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [demo1]
+2019-12-24 16:11:08.403 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [AdvLauncherDemo_v1.apk]
+2019-12-24 16:11:08.403 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - []
+2019-12-24 16:11:08.404 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [5] as [VARCHAR] - [com.advantech.launcherdemo]
+2019-12-24 16:11:08.404 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [6] as [BIGINT] - [1]
+2019-12-24 16:11:08.404 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [7] as [VARCHAR] - []
+2019-12-24 16:11:08.405 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [8] as [BIGINT] - [1577175068297]
+2019-12-24 16:11:08.405 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [9] as [VARCHAR] - [1]
+2019-12-24 16:11:08.405 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [10] as [VARCHAR] - [1.0]
+2019-12-24 16:11:08.406 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [11] as [VARCHAR] - []
+2019-12-24 16:11:08.406 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [12] as [BIGINT] - [1]
+2019-12-24 16:11:09.566 [http-nio-30019-exec-10] INFO  com.m2m.management.controller.RepoAppsController - repoapp:
+2019-12-24 16:11:09.570 [http-nio-30019-exec-10] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.filename like ? order by repoapp0_.ts desc limit ?
+2019-12-24 16:11:09.573 [http-nio-30019-exec-10] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:11:09.576 [http-nio-30019-exec-10] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:11:09.579 [http-nio-30019-exec-10] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:11:09.588 [http-nio-30019-exec-10] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repoapps repoapp0_
+2019-12-24 16:11:17.990 [http-nio-30019-exec-1] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.pkgname=? and repoapp0_.versionname=? and repoapp0_.filename=?
+2019-12-24 16:11:17.992 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [com.advantech.launcherdemo]
+2019-12-24 16:11:17.992 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [2.0]
+2019-12-24 16:11:17.993 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [AdvLauncherDemo_v2.apk]
+2019-12-24 16:11:17.996 [http-nio-30019-exec-1] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.pkgname=? and repoapp0_.versionname=? and repoapp0_.filename=?
+2019-12-24 16:11:17.997 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [com.advantech.launcherdemo]
+2019-12-24 16:11:17.998 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [2.0]
+2019-12-24 16:11:17.998 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [AdvLauncherDemo_v2.apk]
+2019-12-24 16:11:18.002 [http-nio-30019-exec-1] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:11:18.003 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:11:18.013 [http-nio-30019-exec-1] DEBUG org.hibernate.SQL - select nextval ('repoapps_raid_seq')
+2019-12-24 16:11:18.017 [http-nio-30019-exec-1] DEBUG org.hibernate.SQL - insert into public.repoapps (address, description, filename, license, pkgname, rid, summary, ts, versioncode, versionname, websit, raid) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2019-12-24 16:11:18.017 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [/DEPLOYREPO/a8340e5fbd10aa7727195fb239c0a902/com.advantech.launcherdemo/2.0]
+2019-12-24 16:11:18.018 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [demo2]
+2019-12-24 16:11:18.018 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [AdvLauncherDemo_v2.apk]
+2019-12-24 16:11:18.019 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - []
+2019-12-24 16:11:18.019 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [5] as [VARCHAR] - [com.advantech.launcherdemo]
+2019-12-24 16:11:18.019 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [6] as [BIGINT] - [1]
+2019-12-24 16:11:18.020 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [7] as [VARCHAR] - []
+2019-12-24 16:11:18.020 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [8] as [BIGINT] - [1577175078011]
+2019-12-24 16:11:18.020 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [9] as [VARCHAR] - [2]
+2019-12-24 16:11:18.021 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [10] as [VARCHAR] - [2.0]
+2019-12-24 16:11:18.021 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [11] as [VARCHAR] - []
+2019-12-24 16:11:18.022 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [12] as [BIGINT] - [2]
+2019-12-24 16:11:18.966 [http-nio-30019-exec-9] INFO  com.m2m.management.controller.RepoAppsController - repoapp:
+2019-12-24 16:11:18.969 [http-nio-30019-exec-9] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.filename like ? order by repoapp0_.ts desc limit ?
+2019-12-24 16:11:18.972 [http-nio-30019-exec-9] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:11:18.975 [http-nio-30019-exec-9] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:11:18.977 [http-nio-30019-exec-9] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:11:18.984 [http-nio-30019-exec-9] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repoapps repoapp0_
+2019-12-24 16:11:28.603 [http-nio-30019-exec-5] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.pkgname=? and repoapp0_.versionname=? and repoapp0_.filename=?
+2019-12-24 16:11:28.607 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [com.adv.client]
+2019-12-24 16:11:28.608 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [0.14.3228576.20191220]
+2019-12-24 16:11:28.609 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [Android-DM_Agent_v0.14.3228576.20191220_release.apk]
+2019-12-24 16:11:28.614 [http-nio-30019-exec-5] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.pkgname=? and repoapp0_.versionname=? and repoapp0_.filename=?
+2019-12-24 16:11:28.616 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [com.adv.client]
+2019-12-24 16:11:28.618 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [0.14.3228576.20191220]
+2019-12-24 16:11:28.619 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [Android-DM_Agent_v0.14.3228576.20191220_release.apk]
+2019-12-24 16:11:28.626 [http-nio-30019-exec-5] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:11:28.627 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:11:28.664 [http-nio-30019-exec-5] DEBUG org.hibernate.SQL - select nextval ('repoapps_raid_seq')
+2019-12-24 16:11:28.673 [http-nio-30019-exec-5] DEBUG org.hibernate.SQL - insert into public.repoapps (address, description, filename, license, pkgname, rid, summary, ts, versioncode, versionname, websit, raid) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2019-12-24 16:11:28.677 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [/DEPLOYREPO/a8340e5fbd10aa7727195fb239c0a902/com.adv.client/0.14.3228576.20191220]
+2019-12-24 16:11:28.678 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [agent]
+2019-12-24 16:11:28.679 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [Android-DM_Agent_v0.14.3228576.20191220_release.apk]
+2019-12-24 16:11:28.679 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - []
+2019-12-24 16:11:28.680 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [5] as [VARCHAR] - [com.adv.client]
+2019-12-24 16:11:28.680 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [6] as [BIGINT] - [1]
+2019-12-24 16:11:28.681 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [7] as [VARCHAR] - []
+2019-12-24 16:11:28.683 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [8] as [BIGINT] - [1577175088663]
+2019-12-24 16:11:28.687 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [9] as [VARCHAR] - [14]
+2019-12-24 16:11:28.688 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [10] as [VARCHAR] - [0.14.3228576.20191220]
+2019-12-24 16:11:28.689 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [11] as [VARCHAR] - []
+2019-12-24 16:11:28.689 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [12] as [BIGINT] - [3]
+2019-12-24 16:11:29.862 [http-nio-30019-exec-4] INFO  com.m2m.management.controller.RepoAppsController - repoapp:
+2019-12-24 16:11:29.864 [http-nio-30019-exec-4] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.filename like ? order by repoapp0_.ts desc limit ?
+2019-12-24 16:11:29.865 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:11:29.869 [http-nio-30019-exec-4] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:11:29.869 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:11:29.877 [http-nio-30019-exec-4] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repoapps repoapp0_
+2019-12-24 16:11:40.116 [http-nio-30019-exec-2] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.pkgname=? and repoapp0_.versionname=? and repoapp0_.filename=?
+2019-12-24 16:11:40.119 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [com.antutu.ABenchMark]
+2019-12-24 16:11:40.119 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [5.2.0]
+2019-12-24 16:11:40.120 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [Antutu_Benchmark_5.2.0.apk]
+2019-12-24 16:11:40.124 [http-nio-30019-exec-2] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.pkgname=? and repoapp0_.versionname=? and repoapp0_.filename=?
+2019-12-24 16:11:40.124 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [com.antutu.ABenchMark]
+2019-12-24 16:11:40.125 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [5.2.0]
+2019-12-24 16:11:40.125 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [Antutu_Benchmark_5.2.0.apk]
+2019-12-24 16:11:40.129 [http-nio-30019-exec-2] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:11:40.131 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:11:40.260 [http-nio-30019-exec-2] DEBUG org.hibernate.SQL - select nextval ('repoapps_raid_seq')
+2019-12-24 16:11:40.264 [http-nio-30019-exec-2] DEBUG org.hibernate.SQL - insert into public.repoapps (address, description, filename, license, pkgname, rid, summary, ts, versioncode, versionname, websit, raid) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2019-12-24 16:11:40.265 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [/DEPLOYREPO/a8340e5fbd10aa7727195fb239c0a902/com.antutu.ABenchMark/5.2.0]
+2019-12-24 16:11:40.266 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [antutu]
+2019-12-24 16:11:40.266 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [Antutu_Benchmark_5.2.0.apk]
+2019-12-24 16:11:40.266 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - []
+2019-12-24 16:11:40.267 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [5] as [VARCHAR] - [com.antutu.ABenchMark]
+2019-12-24 16:11:40.268 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [6] as [BIGINT] - [1]
+2019-12-24 16:11:40.268 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [7] as [VARCHAR] - []
+2019-12-24 16:11:40.268 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [8] as [BIGINT] - [1577175100259]
+2019-12-24 16:11:40.269 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [9] as [VARCHAR] - [5020000]
+2019-12-24 16:11:40.269 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [10] as [VARCHAR] - [5.2.0]
+2019-12-24 16:11:40.269 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [11] as [VARCHAR] - []
+2019-12-24 16:11:40.269 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [12] as [BIGINT] - [4]
+2019-12-24 16:11:41.578 [http-nio-30019-exec-3] INFO  com.m2m.management.controller.RepoAppsController - repoapp:
+2019-12-24 16:11:41.581 [http-nio-30019-exec-3] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.filename like ? order by repoapp0_.ts desc limit ?
+2019-12-24 16:11:41.584 [http-nio-30019-exec-3] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:11:41.589 [http-nio-30019-exec-3] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:11:41.593 [http-nio-30019-exec-3] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:11:41.602 [http-nio-30019-exec-3] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repoapps repoapp0_
+2019-12-24 16:11:52.658 [http-nio-30019-exec-6] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.pkgname=? and repoapp0_.versionname=? and repoapp0_.filename=?
+2019-12-24 16:11:52.661 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [com.advantech.serialport]
+2019-12-24 16:11:52.661 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [0.4.47a7327.20191127]
+2019-12-24 16:11:52.662 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [ComPort_v0.4.47a7327.20191127_release.apk]
+2019-12-24 16:11:52.666 [http-nio-30019-exec-6] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.pkgname=? and repoapp0_.versionname=? and repoapp0_.filename=?
+2019-12-24 16:11:52.668 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [com.advantech.serialport]
+2019-12-24 16:11:52.668 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [0.4.47a7327.20191127]
+2019-12-24 16:11:52.669 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [ComPort_v0.4.47a7327.20191127_release.apk]
+2019-12-24 16:11:52.673 [http-nio-30019-exec-6] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:11:52.674 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:11:52.683 [http-nio-30019-exec-6] DEBUG org.hibernate.SQL - select nextval ('repoapps_raid_seq')
+2019-12-24 16:11:52.688 [http-nio-30019-exec-6] DEBUG org.hibernate.SQL - insert into public.repoapps (address, description, filename, license, pkgname, rid, summary, ts, versioncode, versionname, websit, raid) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2019-12-24 16:11:52.689 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [/DEPLOYREPO/a8340e5fbd10aa7727195fb239c0a902/com.advantech.serialport/0.4.47a7327.20191127]
+2019-12-24 16:11:52.690 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [serial]
+2019-12-24 16:11:52.691 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [ComPort_v0.4.47a7327.20191127_release.apk]
+2019-12-24 16:11:52.691 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - []
+2019-12-24 16:11:52.692 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [5] as [VARCHAR] - [com.advantech.serialport]
+2019-12-24 16:11:52.693 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [6] as [BIGINT] - [1]
+2019-12-24 16:11:52.694 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [7] as [VARCHAR] - []
+2019-12-24 16:11:52.695 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [8] as [BIGINT] - [1577175112682]
+2019-12-24 16:11:52.695 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [9] as [VARCHAR] - [4]
+2019-12-24 16:11:52.696 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [10] as [VARCHAR] - [0.4.47a7327.20191127]
+2019-12-24 16:11:52.697 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [11] as [VARCHAR] - []
+2019-12-24 16:11:52.698 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [12] as [BIGINT] - [5]
+2019-12-24 16:11:53.774 [http-nio-30019-exec-8] INFO  com.m2m.management.controller.RepoAppsController - repoapp:
+2019-12-24 16:11:53.776 [http-nio-30019-exec-8] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.filename like ? order by repoapp0_.ts desc limit ?
+2019-12-24 16:11:53.778 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:11:53.782 [http-nio-30019-exec-8] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:11:53.783 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:11:53.793 [http-nio-30019-exec-8] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repoapps repoapp0_
+2019-12-24 16:12:07.031 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.pkgname=? and repoapp0_.versionname=? and repoapp0_.filename=?
+2019-12-24 16:12:07.034 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [com.advantech.edgeoncode]
+2019-12-24 16:12:07.034 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [0.7.e63c493.20190920]
+2019-12-24 16:12:07.035 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [EdgeOn-Code_v0.7.e63c493.20190920_release.apk]
+2019-12-24 16:12:07.039 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.pkgname=? and repoapp0_.versionname=? and repoapp0_.filename=?
+2019-12-24 16:12:07.041 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [com.advantech.edgeoncode]
+2019-12-24 16:12:07.042 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [0.7.e63c493.20190920]
+2019-12-24 16:12:07.042 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [EdgeOn-Code_v0.7.e63c493.20190920_release.apk]
+2019-12-24 16:12:07.046 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:12:07.048 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:12:07.060 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select nextval ('repoapps_raid_seq')
+2019-12-24 16:12:07.064 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - insert into public.repoapps (address, description, filename, license, pkgname, rid, summary, ts, versioncode, versionname, websit, raid) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2019-12-24 16:12:07.066 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [/DEPLOYREPO/a8340e5fbd10aa7727195fb239c0a902/com.advantech.edgeoncode/0.7.e63c493.20190920]
+2019-12-24 16:12:07.067 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [edgeon]
+2019-12-24 16:12:07.068 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [EdgeOn-Code_v0.7.e63c493.20190920_release.apk]
+2019-12-24 16:12:07.068 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - []
+2019-12-24 16:12:07.069 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [5] as [VARCHAR] - [com.advantech.edgeoncode]
+2019-12-24 16:12:07.070 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [6] as [BIGINT] - [1]
+2019-12-24 16:12:07.070 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [7] as [VARCHAR] - []
+2019-12-24 16:12:07.071 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [8] as [BIGINT] - [1577175127059]
+2019-12-24 16:12:07.072 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [9] as [VARCHAR] - [7]
+2019-12-24 16:12:07.072 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [10] as [VARCHAR] - [0.7.e63c493.20190920]
+2019-12-24 16:12:07.073 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [11] as [VARCHAR] - []
+2019-12-24 16:12:07.074 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [12] as [BIGINT] - [6]
+2019-12-24 16:12:08.033 [http-nio-30019-exec-10] INFO  com.m2m.management.controller.RepoAppsController - repoapp:
+2019-12-24 16:12:08.036 [http-nio-30019-exec-10] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.filename like ? order by repoapp0_.ts desc limit ?
+2019-12-24 16:12:08.038 [http-nio-30019-exec-10] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:12:08.042 [http-nio-30019-exec-10] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:12:08.042 [http-nio-30019-exec-10] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:12:08.049 [http-nio-30019-exec-10] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repoapps repoapp0_
+2019-12-24 16:12:17.226 [http-nio-30019-exec-1] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.pkgname=? and repoapp0_.versionname=? and repoapp0_.filename=?
+2019-12-24 16:12:17.228 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [com.advantech.helloworld]
+2019-12-24 16:12:17.229 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [1.0]
+2019-12-24 16:12:17.230 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [HelloWorld_v1.apk]
+2019-12-24 16:12:17.233 [http-nio-30019-exec-1] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.pkgname=? and repoapp0_.versionname=? and repoapp0_.filename=?
+2019-12-24 16:12:17.234 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [com.advantech.helloworld]
+2019-12-24 16:12:17.235 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [1.0]
+2019-12-24 16:12:17.235 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [HelloWorld_v1.apk]
+2019-12-24 16:12:17.242 [http-nio-30019-exec-1] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:12:17.245 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:12:17.254 [http-nio-30019-exec-1] DEBUG org.hibernate.SQL - select nextval ('repoapps_raid_seq')
+2019-12-24 16:12:17.258 [http-nio-30019-exec-1] DEBUG org.hibernate.SQL - insert into public.repoapps (address, description, filename, license, pkgname, rid, summary, ts, versioncode, versionname, websit, raid) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2019-12-24 16:12:17.260 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [/DEPLOYREPO/a8340e5fbd10aa7727195fb239c0a902/com.advantech.helloworld/1.0]
+2019-12-24 16:12:17.261 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [hello1]
+2019-12-24 16:12:17.262 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [HelloWorld_v1.apk]
+2019-12-24 16:12:17.263 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - []
+2019-12-24 16:12:17.264 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [5] as [VARCHAR] - [com.advantech.helloworld]
+2019-12-24 16:12:17.264 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [6] as [BIGINT] - [1]
+2019-12-24 16:12:17.264 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [7] as [VARCHAR] - []
+2019-12-24 16:12:17.265 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [8] as [BIGINT] - [1577175137253]
+2019-12-24 16:12:17.265 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [9] as [VARCHAR] - [1]
+2019-12-24 16:12:17.266 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [10] as [VARCHAR] - [1.0]
+2019-12-24 16:12:17.266 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [11] as [VARCHAR] - []
+2019-12-24 16:12:17.266 [http-nio-30019-exec-1] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [12] as [BIGINT] - [7]
+2019-12-24 16:12:18.290 [http-nio-30019-exec-5] INFO  com.m2m.management.controller.RepoAppsController - repoapp:
+2019-12-24 16:12:18.293 [http-nio-30019-exec-5] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.filename like ? order by repoapp0_.ts desc limit ?
+2019-12-24 16:12:18.294 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:12:18.298 [http-nio-30019-exec-5] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:12:18.299 [http-nio-30019-exec-5] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:12:18.306 [http-nio-30019-exec-5] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repoapps repoapp0_
+2019-12-24 16:12:31.443 [http-nio-30019-exec-4] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.pkgname=? and repoapp0_.versionname=? and repoapp0_.filename=?
+2019-12-24 16:12:31.446 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [com.advantech.helloworld]
+2019-12-24 16:12:31.446 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [2.0]
+2019-12-24 16:12:31.446 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [HelloWorld_v2.apk]
+2019-12-24 16:12:31.449 [http-nio-30019-exec-4] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.pkgname=? and repoapp0_.versionname=? and repoapp0_.filename=?
+2019-12-24 16:12:31.450 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [com.advantech.helloworld]
+2019-12-24 16:12:31.451 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [2.0]
+2019-12-24 16:12:31.451 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [HelloWorld_v2.apk]
+2019-12-24 16:12:31.455 [http-nio-30019-exec-4] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:12:31.456 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:12:31.465 [http-nio-30019-exec-4] DEBUG org.hibernate.SQL - select nextval ('repoapps_raid_seq')
+2019-12-24 16:12:31.468 [http-nio-30019-exec-4] DEBUG org.hibernate.SQL - insert into public.repoapps (address, description, filename, license, pkgname, rid, summary, ts, versioncode, versionname, websit, raid) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2019-12-24 16:12:31.469 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [/DEPLOYREPO/a8340e5fbd10aa7727195fb239c0a902/com.advantech.helloworld/2.0]
+2019-12-24 16:12:31.469 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [hello2]
+2019-12-24 16:12:31.469 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [HelloWorld_v2.apk]
+2019-12-24 16:12:31.469 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - []
+2019-12-24 16:12:31.469 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [5] as [VARCHAR] - [com.advantech.helloworld]
+2019-12-24 16:12:31.470 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [6] as [BIGINT] - [1]
+2019-12-24 16:12:31.470 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [7] as [VARCHAR] - []
+2019-12-24 16:12:31.470 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [8] as [BIGINT] - [1577175151463]
+2019-12-24 16:12:31.470 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [9] as [VARCHAR] - [2]
+2019-12-24 16:12:31.471 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [10] as [VARCHAR] - [2.0]
+2019-12-24 16:12:31.471 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [11] as [VARCHAR] - []
+2019-12-24 16:12:31.471 [http-nio-30019-exec-4] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [12] as [BIGINT] - [8]
+2019-12-24 16:12:32.578 [http-nio-30019-exec-2] INFO  com.m2m.management.controller.RepoAppsController - repoapp:
+2019-12-24 16:12:32.581 [http-nio-30019-exec-2] DEBUG org.hibernate.SQL - select repoapp0_.raid as raid1_2_, repoapp0_.address as address2_2_, repoapp0_.description as descript3_2_, repoapp0_.filename as filename4_2_, repoapp0_.license as license5_2_, repoapp0_.pkgname as pkgname6_2_, repoapp0_.rid as rid12_2_, repoapp0_.summary as summary7_2_, repoapp0_.ts as ts8_2_, repoapp0_.versioncode as versionc9_2_, repoapp0_.versionname as version10_2_, repoapp0_.websit as websit11_2_ from public.repoapps repoapp0_ where repoapp0_.filename like ? order by repoapp0_.ts desc limit ?
+2019-12-24 16:12:32.583 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:12:32.586 [http-nio-30019-exec-2] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:12:32.587 [http-nio-30019-exec-2] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:12:32.594 [http-nio-30019-exec-2] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repoapps repoapp0_
+2019-12-24 16:12:37.803 [http-nio-30019-exec-3] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_, repo0_.darkname as darkname2_1_, repo0_.description as descript3_1_, repo0_.reponame as reponame4_1_, repo0_.rtid as rtid6_1_, repo0_.ts as ts5_1_, repo0_.uid as uid7_1_ from public.repo repo0_ where repo0_.reponame like ? order by repo0_.ts desc limit ?
+2019-12-24 16:12:37.812 [http-nio-30019-exec-3] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [%%]
+2019-12-24 16:12:37.816 [http-nio-30019-exec-6] INFO  com.m2m.management.controller.RepoFileController - repofile:
+2019-12-24 16:12:37.818 [http-nio-30019-exec-3] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:12:37.818 [http-nio-30019-exec-3] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [3]
+2019-12-24 16:12:37.820 [http-nio-30019-exec-6] DEBUG org.hibernate.SQL - select repofile0_.rfid as rfid1_4_, repofile0_.address as address2_4_, repofile0_.description as descript3_4_, repofile0_.filename as filename4_4_, repofile0_.format as format5_4_, repofile0_.rid as rid8_4_, repofile0_.ts as ts6_4_, repofile0_.type as type7_4_ from public.repofiles repofile0_ where repofile0_.type=? and (repofile0_.filename like ?) order by repofile0_.ts desc limit ?
+2019-12-24 16:12:37.821 [http-nio-30019-exec-3] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_0_, user0_.name as name2_0_0_, user0_.passwd as passwd3_0_0_, user0_.ts as ts4_0_0_ from public.aimuser user0_ where user0_.uid=?
+2019-12-24 16:12:37.823 [http-nio-30019-exec-3] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:12:37.826 [http-nio-30019-exec-3] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:12:37.823 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [bootanimation]
+2019-12-24 16:12:37.829 [http-nio-30019-exec-6] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [%%]
+2019-12-24 16:12:37.831 [http-nio-30019-exec-3] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [2]
+2019-12-24 16:12:37.838 [http-nio-30019-exec-3] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:12:37.841 [http-nio-30019-exec-3] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:12:37.846 [http-nio-30019-exec-6] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repofiles repofile0_
+2019-12-24 16:12:37.850 [http-nio-30019-exec-3] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repo repo0_
+2019-12-24 16:12:46.429 [http-nio-30019-exec-8] DEBUG org.hibernate.SQL - select repofile0_.rfid as rfid1_4_, repofile0_.address as address2_4_, repofile0_.description as descript3_4_, repofile0_.filename as filename4_4_, repofile0_.format as format5_4_, repofile0_.rid as rid8_4_, repofile0_.ts as ts6_4_, repofile0_.type as type7_4_ from public.repofiles repofile0_ where repofile0_.filename=?
+2019-12-24 16:12:46.431 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [bootanimation.zip]
+2019-12-24 16:12:46.435 [http-nio-30019-exec-8] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:12:46.437 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [3]
+2019-12-24 16:12:46.456 [http-nio-30019-exec-8] DEBUG org.hibernate.SQL - select nextval ('repofiles_rfid_seq')
+2019-12-24 16:12:46.460 [http-nio-30019-exec-8] DEBUG org.hibernate.SQL - insert into public.repofiles (address, description, filename, format, rid, ts, type, rfid) values (?, ?, ?, ?, ?, ?, ?, ?)
+2019-12-24 16:12:46.461 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [/DEPLOYREPO/01c8794a94ad4d1eac4e7eaf191a1291/bootanimation]
+2019-12-24 16:12:46.462 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [boot]
+2019-12-24 16:12:46.463 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [bootanimation.zip]
+2019-12-24 16:12:46.463 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - [zip]
+2019-12-24 16:12:46.464 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [5] as [BIGINT] - [3]
+2019-12-24 16:12:46.465 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [6] as [BIGINT] - [1577175166448]
+2019-12-24 16:12:46.465 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [7] as [VARCHAR] - [bootanimation]
+2019-12-24 16:12:46.466 [http-nio-30019-exec-8] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [8] as [BIGINT] - [1]
+2019-12-24 16:12:47.790 [http-nio-30019-exec-7] INFO  com.m2m.management.controller.RepoFileController - repofile:
+2019-12-24 16:12:47.794 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select repofile0_.rfid as rfid1_4_, repofile0_.address as address2_4_, repofile0_.description as descript3_4_, repofile0_.filename as filename4_4_, repofile0_.format as format5_4_, repofile0_.rid as rid8_4_, repofile0_.ts as ts6_4_, repofile0_.type as type7_4_ from public.repofiles repofile0_ where repofile0_.type=? and (repofile0_.filename like ?) order by repofile0_.ts desc limit ?
+2019-12-24 16:12:47.805 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [bootanimation]
+2019-12-24 16:12:47.805 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [%%]
+2019-12-24 16:12:47.808 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_0_, repo0_.darkname as darkname2_1_0_, repo0_.description as descript3_1_0_, repo0_.reponame as reponame4_1_0_, repo0_.rtid as rtid6_1_0_, repo0_.ts as ts5_1_0_, repo0_.uid as uid7_1_0_, repotype1_.rtid as rtid1_5_1_, repotype1_.ts as ts2_5_1_, repotype1_.typename as typename3_5_1_, user2_.uid as uid1_0_2_, user2_.name as name2_0_2_, user2_.passwd as passwd3_0_2_, user2_.ts as ts4_0_2_ from public.repo repo0_ inner join public.repotype repotype1_ on repo0_.rtid=repotype1_.rtid inner join public.aimuser user2_ on repo0_.uid=user2_.uid where repo0_.rid=?
+2019-12-24 16:12:47.809 [http-nio-30019-exec-7] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [3]
+2019-12-24 16:12:47.820 [http-nio-30019-exec-7] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from public.repofiles repofile0_
+2019-12-24 16:14:04.298 [main] INFO  com.m2m.management.ManagementApplication - Starting ManagementApplication v0.0.1-SNAPSHOT on 01a63bdfac27 with PID 44 (/root/adv/astore.jar started by root in /root/adv)
+2019-12-24 16:14:04.335 [main] INFO  com.m2m.management.ManagementApplication - No active profile set, falling back to default profiles: default
+2019-12-24 16:14:10.081 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-12-24 16:14:10.840 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 671ms. Found 6 repository interfaces.
+2019-12-24 16:14:13.709 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8a5ecb80] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-24 16:14:13.801 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.hateoas.config.HateoasConfiguration' of type [org.springframework.hateoas.config.HateoasConfiguration$$EnhancerBySpringCGLIB$$9df18b2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-24 16:14:15.590 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 30019 (http)
+2019-12-24 16:14:15.655 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-30019"]
+2019-12-24 16:14:15.704 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-24 16:14:15.705 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/9.0.13
+2019-12-24 16:14:15.922 [main] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+2019-12-24 16:14:16.212 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-24 16:14:16.213 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 11477 ms
+2019-12-24 16:14:17.135 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2019-12-24 16:14:17.454 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2019-12-24 16:14:17.710 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-12-24 16:14:17.977 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.7.Final}
+2019-12-24 16:14:17.991 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2019-12-24 16:14:18.555 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-12-24 16:14:19.534 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2019-12-24 16:14:19.591 [main] INFO  o.h.engine.jdbc.env.internal.LobCreatorBuilderImpl - HHH000422: Disabling contextual LOB creation as connection was null
+2019-12-24 16:14:19.608 [main] INFO  org.hibernate.type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@7d322cad
+2019-12-24 16:14:22.610 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-12-24 16:14:27.354 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-24 16:14:27.587 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-12-24 16:14:28.171 [main] INFO  o.s.b.a.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [aStore/index.html]
+2019-12-24 16:14:29.427 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-30019"]
+2019-12-24 16:14:29.450 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2019-12-24 16:14:29.520 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 30019 (http) with context path ''
+2019-12-24 16:14:29.531 [main] INFO  com.m2m.management.ManagementApplication - Started ManagementApplication in 28.268 seconds (JVM running for 32.294)
+2019-12-24 16:14:29.624 [main] INFO  o.h.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2019-12-24 16:14:30.116 [main] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_, user0_.name as name2_0_, user0_.passwd as passwd3_0_, user0_.ts as ts4_0_ from public.aimuser user0_ where user0_.name=?
+2019-12-24 16:14:30.137 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [admin]
+2019-12-24 16:14:30.238 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_, repotype0_.ts as ts2_5_, repotype0_.typename as typename3_5_ from public.repotype repotype0_ where repotype0_.typename=?
+2019-12-24 16:14:30.239 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [appStore]
+2019-12-24 16:14:30.247 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_, repotype0_.ts as ts2_5_, repotype0_.typename as typename3_5_ from public.repotype repotype0_ where repotype0_.typename=?
+2019-12-24 16:14:30.248 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [bspStore]
+2019-12-24 16:14:30.252 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_, repotype0_.ts as ts2_5_, repotype0_.typename as typename3_5_ from public.repotype repotype0_ where repotype0_.typename=?
+2019-12-24 16:14:30.253 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [fileStore]
+2019-12-24 16:14:30.263 [main] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_, repo0_.darkname as darkname2_1_, repo0_.description as descript3_1_, repo0_.reponame as reponame4_1_, repo0_.rtid as rtid6_1_, repo0_.ts as ts5_1_, repo0_.uid as uid7_1_ from public.repo repo0_ where repo0_.reponame=?
+2019-12-24 16:14:30.265 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [AndroidApp]
+2019-12-24 16:14:30.275 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:14:30.278 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:14:30.294 [main] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_0_, user0_.name as name2_0_0_, user0_.passwd as passwd3_0_0_, user0_.ts as ts4_0_0_ from public.aimuser user0_ where user0_.uid=?
+2019-12-24 16:14:30.295 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:14:30.300 [main] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_, repo0_.darkname as darkname2_1_, repo0_.description as descript3_1_, repo0_.reponame as reponame4_1_, repo0_.rtid as rtid6_1_, repo0_.ts as ts5_1_, repo0_.uid as uid7_1_ from public.repo repo0_ where repo0_.reponame=?
+2019-12-24 16:14:30.301 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [AndroidBsp]
+2019-12-24 16:14:30.303 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:14:30.304 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [2]
+2019-12-24 16:14:30.307 [main] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_0_, user0_.name as name2_0_0_, user0_.passwd as passwd3_0_0_, user0_.ts as ts4_0_0_ from public.aimuser user0_ where user0_.uid=?
+2019-12-24 16:14:30.308 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2019-12-24 16:14:30.312 [main] DEBUG org.hibernate.SQL - select repo0_.rid as rid1_1_, repo0_.darkname as darkname2_1_, repo0_.description as descript3_1_, repo0_.reponame as reponame4_1_, repo0_.rtid as rtid6_1_, repo0_.ts as ts5_1_, repo0_.uid as uid7_1_ from public.repo repo0_ where repo0_.reponame=?
+2019-12-24 16:14:30.313 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [AndroidFile]
+2019-12-24 16:14:30.316 [main] DEBUG org.hibernate.SQL - select repotype0_.rtid as rtid1_5_0_, repotype0_.ts as ts2_5_0_, repotype0_.typename as typename3_5_0_ from public.repotype repotype0_ where repotype0_.rtid=?
+2019-12-24 16:14:30.317 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [3]
+2019-12-24 16:14:30.319 [main] DEBUG org.hibernate.SQL - select user0_.uid as uid1_0_0_, user0_.name as name2_0_0_, user0_.passwd as passwd3_0_0_, user0_.ts as ts4_0_0_ from public.aimuser user0_ where user0_.uid=?
+2019-12-24 16:14:30.320 [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]

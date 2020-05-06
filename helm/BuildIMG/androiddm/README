@@ -1,0 +1,10 @@
+1. build docker image --  java8env
+# cd build-docker-image
+# ./build.sh
+2. start the server docker
+# cd run-docker-image
+# ./restart.sh 
+
+Note. 
+1. link postgresql and mqtt broker, format : "public ip + port"
+2. if encount post jdbc driver error, please use the postgresql docker
