@@ -28,10 +28,12 @@ spec:
         env:
         - name: appName
           value: androiddm
-        - name: SSO.apiUrl
+        - name: ssoUrl
           value: http://api.sso.ensaas.en.internal/v4.0
         - name: serviceName
           value: androiddm
+        - name: licenseTimer
+          value: '360000'
         - name: ENSAAS_SERVICES
           valueFrom:
             secretKeyRef:

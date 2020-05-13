@@ -28,7 +28,7 @@ spec:
         env:
         - name: appName
           value: astore
-        - name: SSO.apiUrl
+        - name: ssoUrl
           value: http://api.sso.ensaas.en.internal/v4.0
         - name: serviceName
           value: astore
