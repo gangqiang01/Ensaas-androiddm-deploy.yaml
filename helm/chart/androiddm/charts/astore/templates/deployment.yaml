@@ -23,17 +23,15 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - name: http
-          containerPort: 8080
+          containerPort: 30001
           protocol: TCP
         env:
         - name: appName
-          value: androiddm
+          value: astore
         - name: ssoUrl
           value: http://api.sso.ensaas.en.internal/v4.0
         - name: serviceName
-          value: androiddm
-        - name: licenseTimer
-          value: '360000'
+          value: astore
         - name: ENSAAS_SERVICES
           valueFrom:
             secretKeyRef:
@@ -41,11 +39,11 @@ spec:
               key: ENSAAS_SERVICES
         resources:
           limits:
-            cpu: 0.5     　　
-            memory: 768M
+            cpu: 0.1     　　
+            memory: 512M
             ephemeral-storage: 768M
           requests:
-            cpu: 0.5
-            memory: 768M
+            cpu: 0.1
+            memory: 256M
             ephemeral-storage: 768M
-
+      

@@ -1,0 +1,25 @@
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Values.ingress.name }}
+spec:
+  rules:
+  - host: {{ .Values.novncingress.host }}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ .Values.service.name }}
+          servicePort: {{ .Values.novncservice.port }}
+  - host: {{ .Values.repeatervieweringress.host }}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ .Values.service.name }}
+          servicePort: {{ .Values.repeaterviewerservice.port }}
+  - host: {{ .Values.repeaterserveringress.host }}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ .Values.service.name }}
+          servicePort: {{ .Values.repeaterserverservice.port }}

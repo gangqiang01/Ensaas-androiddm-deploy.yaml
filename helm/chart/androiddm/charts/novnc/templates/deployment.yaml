@@ -22,30 +22,22 @@ spec:
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
-        - name: http
-          containerPort: 8080
+        - name: {{ .Values.novncservice.name }}
+          containerPort: 9191
           protocol: TCP
-        env:
-        - name: appName
-          value: androiddm
-        - name: ssoUrl
-          value: http://api.sso.ensaas.en.internal/v4.0
-        - name: serviceName
-          value: androiddm
-        - name: licenseTimer
-          value: '360000'
-        - name: ENSAAS_SERVICES
-          valueFrom:
-            secretKeyRef:
-              name: androiddm
-              key: ENSAAS_SERVICES
+        - name: {{ .Values.repeaterserverservice.name }}
+          containerPort: 5500
+          protocol: TCP
+        - name: {{ .Values.repeaterviewerservice.name }}
+          containerPort: 5901
+          protocol: TCP
         resources:
           limits:
-            cpu: 0.5     　　
-            memory: 768M
+            cpu: 0.1     　　
+            memory: 512M
             ephemeral-storage: 768M
           requests:
-            cpu: 0.5
-            memory: 768M
+            cpu: 0.1
+            memory: 256M
             ephemeral-storage: 768M
-
+      
