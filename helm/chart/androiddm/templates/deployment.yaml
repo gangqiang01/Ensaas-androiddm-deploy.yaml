@@ -34,6 +34,8 @@ spec:
           value: androiddm
         - name: licenseTimer
           value: '360000'
+        - name: domain
+          value: "hz.wise-paas.com.cn"
         - name: ENSAAS_SERVICES
           valueFrom:
             secretKeyRef:
@@ -41,8 +43,8 @@ spec:
               key: ENSAAS_SERVICES
         resources:
           limits:
-            cpu: 1     　　
-            memory: 1G
+            cpu: 0.6     　　
+            memory: 768M
             ephemeral-storage: 1G
           requests:
             cpu: 0.4

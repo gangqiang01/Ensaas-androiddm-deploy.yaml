@@ -1,10 +1,13 @@
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8-jre-slim
 MAINTAINER "androidDM"<gangqiang@advantech.com.cn>
-ADD m2mserver.jar /root/adv/m2mserver.jar
-ADD server.conf /root/adv/server.conf
-ADD models /root/adv/models
-ADD run.sh /root/adv/run.sh 
-ADD androidDM /root/adv/androidDM
-ADD token /root/adv/token
+RUN apt-get update
+RUN apt-get -y install vim
+COPY m2mserver.jar /root/adv/m2mserver.jar
+COPY server.conf /root/adv/server.conf
+COPY models /root/adv/models
+COPY run.sh /root/adv/run.sh 
+COPY androidDM /root/adv/androidDM
+COPY token /root/adv/token
+RUN mkdir /root/adv/solutionAppIcon
 EXPOSE 8080
 ENTRYPOINT ["/root/adv/run.sh"]

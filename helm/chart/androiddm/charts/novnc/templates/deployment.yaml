@@ -33,11 +33,11 @@ spec:
           protocol: TCP
         resources:
           limits:
-            cpu: 0.1     　　
-            memory: 512M
-            ephemeral-storage: 768M
-          requests:
-            cpu: 0.1
+            cpu: 0.02    　　
             memory: 256M
-            ephemeral-storage: 768M
+            ephemeral-storage: 128M
+          requests:
+            cpu: 0.01
+            memory: 128M
+            ephemeral-storage: 64M
       
