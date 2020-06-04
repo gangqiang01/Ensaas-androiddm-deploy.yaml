@@ -43,11 +43,11 @@ global:
   androiddm:
     repository: harbor.arfa.wise-paas.com/androiddm/androiddm-ensaas
     tag: v1.0.0
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
   astore:
     repository: harbor.arfa.wise-paas.com/androiddm/astore-ensaas
     tag: v1.0.0
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
   novnc:
     repository: harbor.arfa.wise-paas.com/androiddm/novnc-ensaas
     tag: v1.0.0
