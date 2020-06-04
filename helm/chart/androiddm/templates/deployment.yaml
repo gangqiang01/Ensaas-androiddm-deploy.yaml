@@ -19,8 +19,8 @@ spec:
         - name: {{ .Values.imagePullSecrets.name}}
       containers:
       - name: {{ .Chart.Name }}
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        image: {{ .Values.global.androiddm.repository }}:{{ .Values.global.androiddm.tag }}
+        imagePullPolicy: {{ .Values.global.androiddm.pullPolicy }}
         ports:
         - name: http
           containerPort: 8080
@@ -29,25 +29,29 @@ spec:
         - name: appName
           value: androiddm
         - name: ssoUrl
-          value: http://api.sso.ensaas.en.internal/v4.0
+          value: {{ .Values.global.ensaasApps.apiSso.internalUrl }}
         - name: serviceName
           value: androiddm
         - name: licenseTimer
           value: '360000'
         - name: domain
-          value: "hz.wise-paas.com.cn"
+          value: {{ .Values.global.ensaasApps.ensaas.externalUrl }}
+        - name: apiLicense
+          value: {{ .Values.global.ensaasApps.apiLicense.internalUrl }}
+        - name: pn
+          value: {{ .Values.global.ensaasApps.licenseParam.pn }}
         - name: ENSAAS_SERVICES
           valueFrom:
             secretKeyRef:
-              name: androiddm
+              name: {{ .Values.global.database.secretName }}
               key: ENSAAS_SERVICES
         resources:
           limits:
-            cpu: 0.6     　　
+            cpu: 0.35     　　
             memory: 768M
-            ephemeral-storage: 1G
+            ephemeral-storage: 768M
           requests:
-            cpu: 0.4
+            cpu: 0.35
             memory: 512M
             ephemeral-storage: 768M
 

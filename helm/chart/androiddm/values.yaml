@@ -6,11 +6,6 @@ label: androiddm
 
 replicaCount: 1
 
-image:
-  repository: harbor.arfa.wise-paas.com/androiddm/m2mserver-ensaas
-  tag: 1.0.0
-  pullPolicy: Always
-
 imagePullSecrets: 
   name: regcred
 
@@ -23,5 +18,44 @@ service:
 
 ingress:
   name: androiddm
-  host: androiddm.androiddm.eks001.en.internal
+  host: androiddm
+
+global:
+  database:
+    secretName: androiddm
+  ensaasApps:    
+    apiSso:
+      externalUrl: http://api-sso-ensaas.hz.wise-paas.com.cn/v4.0   
+      internalUrl: http://api.sso.ensaas.en.internal/v4.0
+    apiLicense:
+      externalUrl: https://api-license-ensaas.hz.wise-paas.com.cn/v1
+      internalUrl: http://api.license.ensaas.en.internal/v1
+    ensaas:
+      datacenterCode: hz
+      externalUrl: hz.wise-paas.com.cn
+      internalUrl: en.internal
+    licenseParam:
+      pn: "9806WPADM01"
+
+  url:
+    host: .androiddm.eks001.en.internal
+#docker镜像
+  androiddm:
+    repository: harbor.arfa.wise-paas.com/androiddm/androiddm-ensaas
+    tag: v1.0.0
+    pullPolicy: Always
+  astore:
+    repository: harbor.arfa.wise-paas.com/androiddm/astore-ensaas
+    tag: v1.0.0
+    pullPolicy: Always
+  novnc:
+    repository: harbor.arfa.wise-paas.com/androiddm/novnc-ensaas
+    tag: v1.0.0
+    pullPolicy: IfNotPresent
+  solutionapp:
+    repository: harbor.arfa.wise-paas.com/androiddm/solutionapp-ensaas
+    tag: v1.0.0
+    pullPolicy: IfNotPresent
+
+
 

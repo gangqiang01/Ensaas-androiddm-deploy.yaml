@@ -33,9 +33,9 @@ repeaterserverservice:
 ingress:
   name: novnc
 novncingress:
-  host: novnc.androiddm.eks001.en.internal
+  host: novnc
 repeatervieweringress:
-  host: repeaterviewer.androiddm.eks001.en.internal
+  host: repeaterviewer
 repeaterserveringress:
-  host: repeaterserver.androiddm.eks001.en.internal
+  host: repeaterserver
 

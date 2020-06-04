@@ -19,8 +19,8 @@ spec:
         - name: {{ .Values.imagePullSecrets.name}}
       containers:
       - name: {{ .Chart.Name }}
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        image: {{ .Values.global.astore.repository }}:{{ .Values.global.astore.tag }}
+        imagePullPolicy: {{ .Values.global.astore.pullPolicy }}
         ports:
         - name: http
           containerPort: 30001
@@ -29,21 +29,21 @@ spec:
         - name: appName
           value: astore
         - name: ssoUrl
-          value: http://api.sso.ensaas.en.internal/v4.0
+          value: {{ .Values.global.ensaasApps.apiSso.internalUrl }}
         - name: serviceName
           value: astore
         - name: ENSAAS_SERVICES
           valueFrom:
             secretKeyRef:
-              name: androiddm
+              name: {{ .Values.global.database.secretName }}
               key: ENSAAS_SERVICES
         resources:
           limits:
-            cpu: 0.2     　　
-            memory: 512M
-            ephemeral-storage: 512M
+            cpu: 0.1     　　
+            memory: 768M
+            ephemeral-storage: 768M
           requests:
             cpu: 0.1
-            memory: 256M
-            ephemeral-storage: 258M
+            memory: 768M
+            ephemeral-storage: 768M
       

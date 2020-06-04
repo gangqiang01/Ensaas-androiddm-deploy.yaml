@@ -19,8 +19,8 @@ spec:
         - name: {{ .Values.imagePullSecrets.name}}
       containers:
       - name: {{ .Chart.Name }}
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        image: {{ .Values.global.novnc.repository }}:{{ .Values.global.novnc.tag }}
+        imagePullPolicy: {{ .Values.global.novnc.pullPolicy }}
         ports:
         - name: {{ .Values.novncservice.name }}
           containerPort: 9191
@@ -33,11 +33,11 @@ spec:
           protocol: TCP
         resources:
           limits:
-            cpu: 0.02    　　
-            memory: 256M
-            ephemeral-storage: 128M
+            cpu: 0.01    　　
+            memory: 64M
+            ephemeral-storage: 64M
           requests:
             cpu: 0.01
-            memory: 128M
+            memory: 64M
             ephemeral-storage: 64M
       

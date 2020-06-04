@@ -22,6 +22,6 @@ service:
 
 ingress:
   name: astore
-  host: astore.androiddm.eks001.en.internal
+  host: astore
 
 

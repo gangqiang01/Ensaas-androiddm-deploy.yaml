@@ -22,6 +22,5 @@ service:
 
 ingress:
   name: solutionapp
-  host: solutionapp.androiddm.eks001.en.internal
-
+  host: solutionapp
 
