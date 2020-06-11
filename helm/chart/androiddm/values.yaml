@@ -18,7 +18,7 @@ service:
 
 ingress:
   name: androiddm
-  host: androiddm
+  host: portal-androiddm
 
 global:
   database:

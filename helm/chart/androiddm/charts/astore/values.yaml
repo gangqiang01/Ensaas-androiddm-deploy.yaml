@@ -22,6 +22,6 @@ service:
 
 ingress:
   name: astore
-  host: astore
+  host: portal-astore
 
 

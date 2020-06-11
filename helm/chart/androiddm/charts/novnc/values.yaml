@@ -33,7 +33,7 @@ repeaterserverservice:
 ingress:
   name: novnc
 novncingress:
-  host: novnc
+  host: api-novnc
 repeatervieweringress:
   host: repeaterviewer
 repeaterserveringress:

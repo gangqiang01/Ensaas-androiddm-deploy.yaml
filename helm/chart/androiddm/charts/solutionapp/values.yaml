@@ -22,5 +22,5 @@ service:
 
 ingress:
   name: solutionapp
-  host: solutionapp
+  host: portal-solutionapp
 
