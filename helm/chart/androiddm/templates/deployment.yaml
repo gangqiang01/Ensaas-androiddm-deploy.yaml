@@ -28,6 +28,8 @@ spec:
         env:
         - name: appName
           value: androiddm
+        - name: urlprefix
+          value: {{ .Values.ingress.host }} 
         - name: ssoUrl
           value: {{ .Values.global.ensaasApps.apiSso.internalUrl }}
         - name: serviceName
