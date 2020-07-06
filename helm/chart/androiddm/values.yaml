@@ -36,6 +36,8 @@ global:
       internalUrl: en.internal
     licenseParam:
       pn: "9806WPADM01"
+    apiDCCS: 
+      externalUrl: http://api-dccs-ensaas.hz.wise-paas.com.cn/v1
 
   url:
     host: .androiddm.eks001.en.internal

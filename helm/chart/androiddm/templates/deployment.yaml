@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{.Chart.Name}}
-  namespace: {{ .Values.namespace }}
   labels:
     app: {{ .Values.label}}
 spec:
@@ -40,6 +39,8 @@ spec:
           value: {{ .Values.global.ensaasApps.ensaas.externalUrl }}
         - name: apiLicense
           value: {{ .Values.global.ensaasApps.apiLicense.internalUrl }}
+        - name: dccsUrl
+          value: {{ .Values.global.ensaasApps.apiDCCS.externalUrl }}
         - name: pn
           value: {{ .Values.global.ensaasApps.licenseParam.pn }}
         - name: ENSAAS_SERVICES
