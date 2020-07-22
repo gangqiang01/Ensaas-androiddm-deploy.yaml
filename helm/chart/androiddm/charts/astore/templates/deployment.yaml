@@ -47,4 +47,22 @@ spec:
             cpu: 0.1
             memory: 768M
             ephemeral-storage: 5120M
+      initContainers:
+      - env:
+        - name: NAMESPACE_NAME
+          value: {{.Release.Namespace}}
+        - name: POD_LABELS
+          value: app=androiddm
+        - name: MAX_RETRY
+          value: "120"
+        image: registry.cn-hangzhou.aliyuncs.com/wh819971938/pod-dependency-init-container:1.0.0.1
+        imagePullPolicy: IfNotPresent
+        name: pod-dependency
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
       
