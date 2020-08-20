@@ -23,7 +23,10 @@ ingress:
 global:
   database:
     secretName: androiddm
-  ensaasApps:    
+  ensaasApps:
+    apiDccs: 
+      externalUrl: http://api-dccs-ensaas.hz.wise-paas.com.cn/v1
+      internalUrl: http://api.dccs.ensaas.en.internal/v1   
     apiSso:
       externalUrl: http://api-sso-ensaas.hz.wise-paas.com.cn/v4.0   
       internalUrl: http://api.sso.ensaas.en.internal/v4.0
@@ -36,8 +39,7 @@ global:
       internalUrl: en.internal
     licenseParam:
       pn: "9806WPADM01"
-    apiDCCS: 
-      externalUrl: http://api-dccs-ensaas.hz.wise-paas.com.cn/v1
+    
 
   url:
     host: .androiddm.eks001.en.internal

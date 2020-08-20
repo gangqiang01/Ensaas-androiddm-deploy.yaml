@@ -40,7 +40,7 @@ spec:
         - name: apiLicense
           value: {{ .Values.global.ensaasApps.apiLicense.internalUrl }}
         - name: dccsUrl
-          value: {{ .Values.global.ensaasApps.apiDCCS.externalUrl }}
+          value: {{ .Values.global.ensaasApps.apiDccs.externalUrl }}
         - name: pn
           value: {{ .Values.global.ensaasApps.licenseParam.pn }}
         - name: ENSAAS_SERVICES
