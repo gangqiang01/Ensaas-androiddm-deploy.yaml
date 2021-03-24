@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t gangqiang01/m2mserver-ensaas:1.1.2 -f Dockerfile .
+docker build -t harbor.arfa.wise-paas.com/apphub/apphub-manager-ensaas:v1.0.0 -f Dockerfile .

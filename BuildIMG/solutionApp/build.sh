@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t gangqiang01/solutionapp-ensaas:1.0.9 -f Dockerfile .
+docker build -t harbor.arfa.wise-paas.com/androiddm/solutionapp-ensaas:v1.0.0 -f Dockerfile .
