@@ -22,7 +22,7 @@ ingress:
 
 global:
   database:
-    secretName: apphub-develop-secret
+    secretName: apphub-eks001-secret
   ensaasApps:
     apiDccs: 
       externalUrl: http://api-dccs-ensaas.hz.wise-paas.com.cn/v1
@@ -42,7 +42,7 @@ global:
     
 
   url:
-    host: .develop.eks002.en.internal
+    host: .apphub.eks001.en.internal
 #docker镜像
   androiddm:
     repository: harbor.arfa.wise-paas.com/apphub/apphub-manager-ensaas
