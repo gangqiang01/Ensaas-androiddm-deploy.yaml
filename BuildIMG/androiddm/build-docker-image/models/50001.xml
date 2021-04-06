@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LWM2M  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://openmobilealliance.org/tech/profiles/LWM2M.xsd">
+    <Object ObjectType="MODefinition">
+        <Name>Extended Info</Name>
+        <Description1>Description: Extended Info</Description1>
+        <ObjectID>50001</ObjectID>
+        <ObjectURN>urn:oma:lwm2m:x:50001</ObjectURN>
+        <MultipleInstances>Single</MultipleInstances>
+        <Mandatory>Optional</Mandatory>
+        <Resources>
+            <Item ID="27300">
+                <Name>Get Exe Packages</Name>
+                <Operations>R</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Get Exe Packages]]></Description>
+            </Item>
+            <Item ID="27301">
+                <Name>Install Exe Packages</Name>
+                <Operations>W</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Install Exe Packages]]></Description>
+            </Item>
+            <Item ID="27302">
+                <Name>Uninstall Exe Packages</Name>
+                <Operations>W</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Uninstall Exe Packages]]></Description>
+            </Item>
+            <Item ID="27303">
+                <Name>Upgrade Exe Packages</Name>
+                <Operations>W</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Upgrade Exe Packages]]></Description>
+            </Item>
+
+            <Item ID="28300">
+                <Name>Get Windows Packages</Name>
+                <Operations>R</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Get Windows Packages]]></Description>
+            </Item>
+            <Item ID="28301">
+                <Name>Install Windows Packages</Name>
+                <Operations>W</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Install Windows Packages]]></Description>
+            </Item>
+            <Item ID="28302">
+                <Name>Uninstall Windows Packages</Name>
+                <Operations>W</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Uninstall Windows Packages]]></Description>
+            </Item>
+            <Item ID="28303">
+                <Name>Upgrade Windows Packages</Name>
+                <Operations>W</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Upgrade Windows Packages]]></Description>
+            </Item>
+        </Resources>
+        <Description2></Description2>
+    </Object>
+</LWM2M>
+

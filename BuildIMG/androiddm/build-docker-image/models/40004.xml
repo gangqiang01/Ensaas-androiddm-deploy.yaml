@@ -151,6 +151,27 @@ Enable / Disable Appinfo Page]]></Description>
                 <Description><![CDATA[Set Kiosk]]></Description>
             </Item>
 
+            <Item ID="27315">
+                <Name>Cancel Kiosk</Name>
+                <Operations>W</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Cancel Kiosk]]></Description>
+            </Item>
+
+            <Item ID="27316">
+                <Name>Check Some App Running</Name>
+                <Operations>R</Operations>
+                <MultipleInstances>Single</MultipleInstances>
+                <Mandatory>Mandatory</Mandatory>
+                <Type>String</Type>
+                <RangeEnumeration></RangeEnumeration>
+                <Units></Units>
+                <Description><![CDATA[Check Some App Running]]></Description>
+            </Item>
 
         </Resources>
 		<Description2></Description2>

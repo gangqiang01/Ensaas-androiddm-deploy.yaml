@@ -73,7 +73,8 @@ Enable / Disable Time Icon]]></Description>
                 <Units></Units>
                 <Description><![CDATA[Set Bootanimation]]></Description>
             </Item>
-     	    <Item ID="27206"><Name>Deploy File</Name>
+
+            <Item ID="27206"><Name>Deploy File</Name>
                 <Operations>W</Operations>
                 <MultipleInstances>Single</MultipleInstances>
                 <Mandatory>Mandatory</Mandatory>
@@ -82,6 +83,7 @@ Enable / Disable Time Icon]]></Description>
                 <Units></Units>
                 <Description><![CDATA[Deploy File]]></Description>
             </Item>
+
 
 		</Resources>
 		<Description2></Description2>
