@@ -38,7 +38,7 @@ global:
       externalUrl: hz.wise-paas.com.cn
       internalUrl: en.internal
     licenseParam:
-      pn: "980GWPAHA02"
+      pn: "980GWPAHA01"
     
 
   url:
@@ -47,11 +47,11 @@ global:
   androiddm:
     repository: harbor.arfa.wise-paas.com/apphub/apphub-manager-ensaas
     tag: v1.0.0
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
   astore:
     repository: harbor.arfa.wise-paas.com/apphub/apphub-repo-ensaas
     tag: v1.0.0
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
   novnc:
     repository: harbor.arfa.wise-paas.com/androiddm/novnc-ensaas
     tag: v1.0.0
