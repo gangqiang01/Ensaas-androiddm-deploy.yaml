@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{.Chart.Name}}
+  labels:
+    app: {{ .Values.label}}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.label}}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.label}}
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecrets.name}}
+      containers:
+      - name: {{ .Chart.Name }}
+        image: {{ .Values.global.astore.repository }}:{{ .Values.global.astore.tag }}
+        imagePullPolicy: {{ .Values.global.astore.pullPolicy }}
+        ports:
+        - name: http
+          containerPort: 30001
+          protocol: TCP
+        env:
+        - name: appName
+          value: apphub-repo
+        - name: urlprefix
+          value: {{ .Values.ingress.host }}
+        - name: ssoUrl
+          value: {{ .Values.global.ensaasApps.apiSso.internalUrl }}
+        - name: serviceName
+          value: apphub-repo
+        - name: bpn
+          value: {{ .Values.global.ensaasApps.licenseParam.bpn }}
+        - name: spn
+          value: {{ .Values.global.ensaasApps.licenseParam.spn }}
+        - name: pn
+          value: {{ .Values.global.ensaasApps.licenseParam.pn }}
+        - name: ENSAAS_SERVICES
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.global.database.secretName }}
+              key: ENSAAS_SERVICES
+        resources:
+          limits:
+            cpu: 0.1     　　
+            memory: 512M
+            ephemeral-storage: 2048M
+          requests:
+            cpu: 0.1
+            memory: 512M
+            ephemeral-storage: 2048M
+      

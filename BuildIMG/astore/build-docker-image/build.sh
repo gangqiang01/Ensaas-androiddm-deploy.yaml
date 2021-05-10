@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t gangqiang01/astore-ensaas:1.1.1 .
+docker build -t harbor.arfa.wise-paas.com/apphub/apphub-repo-ensaas-single:v1.0.0 .

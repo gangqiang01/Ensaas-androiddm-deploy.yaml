@@ -1,0 +1,55 @@
+# Default values for androiddm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+namespace: apprepo
+label: apphub-repo
+
+replicaCount: 1
+
+imagePullSecrets: 
+  name: regcred
+
+service:
+  name: apphub-repo
+  label: apphub-repo
+  type: ClusterIP
+  port: 80
+  targetPort: 30001
+
+ingress:
+  name: apphub-repo
+  host: portal-apphub-repo
+
+global:
+  database:
+    secretName: apprepo
+  ensaasApps:
+    apiDccs: 
+      externalUrl: http://api-dccs-ensaas.hz.wise-paas.com/v1
+      internalUrl: http://api.dccs.ensaas.en.internal/v1   
+    apiSso:
+      externalUrl: http://api-sso-ensaas.hz.wise-paas.com/v4.0   
+      internalUrl: http://api.sso.ensaas.en.internal/v4.0
+    apiLicense:
+      externalUrl: https://api-license-ensaas.hz.wise-paas.com/v1
+      internalUrl: http://api.license.ensaas.en.internal/v1
+    ensaas:
+      datacenterCode: hz
+      externalUrl: hz.wise-paas.com
+      internalUrl: en.internal
+    licenseParam:
+      bpn: "980GWPARB00"
+      spn: "980GWPARS00"
+      pn: "980GWPARP00"
+    
+
+  url:
+    host: .apprepo.eks001.en.internal
+#docker镜像
+  astore:
+    repository: harbor.arfa.wise-paas.com/apphub/apphub-repo-ensaas-single
+    tag: v1.0.0
+    pullPolicy: IfNotPresent
+
+
+

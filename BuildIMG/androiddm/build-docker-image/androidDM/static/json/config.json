@@ -1,9 +1,0 @@
-{
-    "repoServerIp": "astore-androiddm-eks001.hz.wise-paas.com.cn",
-    "repoServerPort":  "30001",
-    "downloadServerPort": "30002",
-    "repoRootPath": "DEPLOYREPO",
-    "backendServerUrl": "https://androiddm-androiddm-eks001.hz.wise-paas.com.cn",
-    "vncServerIp":"https://androiddm-androiddm-eks001.hz.wise-paas.com.cn",
-    "vncServerPort":"9191"
-}
