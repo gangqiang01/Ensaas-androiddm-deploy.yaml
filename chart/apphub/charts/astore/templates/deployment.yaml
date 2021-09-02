@@ -26,13 +26,15 @@ spec:
           protocol: TCP
         env:
         - name: appName
-          value: apphub-repo
+          value: apphub
         - name: urlprefix
           value: {{ .Values.ingress.host }}
         - name: ssoUrl
           value: {{ .Values.global.ensaasApps.apiSso.internalUrl }}
         - name: serviceName
-          value: apphub-repo
+          value: apphub
+        - name: pn
+          value: {{ .Values.global.ensaasApps.licenseParam.pn }}
         - name: ENSAAS_SERVICES
           valueFrom:
             secretKeyRef:

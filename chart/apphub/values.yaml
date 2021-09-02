@@ -38,7 +38,8 @@ global:
       externalUrl: hz.wise-paas.com.cn
       internalUrl: en.internal
     licenseParam:
-      pn: "980GWPAHA03"
+      pn: "980GWPAHA02"
+      addpn: "980GWPAHA03"
     
 
   url:
