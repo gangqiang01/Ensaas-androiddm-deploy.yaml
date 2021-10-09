@@ -43,12 +43,12 @@ spec:
         resources:
           limits:
             cpu: 0.1     　　
-            memory: 768M
-            ephemeral-storage: 4096M
+            memory: 512M
+            ephemeral-storage: 1024M
           requests:
             cpu: 0.1
-            memory: 768M
-            ephemeral-storage: 4096M
+            memory: 512M
+            ephemeral-storage: 1024M
       initContainers:
       - env:
         - name: NAMESPACE_NAME
@@ -57,7 +57,7 @@ spec:
           value: app=apphub-manager
         - name: MAX_RETRY
           value: "120"
-        image: registry.cn-hangzhou.aliyuncs.com/wh819971938/pod-dependency-init-container:1.0.0.1
+        image: {{ .Values.global.podinit.repository }}:{{ .Values.global.podinit.tag }}
         imagePullPolicy: IfNotPresent
         name: pod-dependency
         resources:

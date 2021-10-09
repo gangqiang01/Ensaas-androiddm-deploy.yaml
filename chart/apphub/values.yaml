@@ -57,6 +57,10 @@ global:
     repository: harbor.arfa.wise-paas.com/androiddm/novnc-ensaas
     tag: v1.0.0
     pullPolicy: IfNotPresent
+  podinit:
+    repository: harbor.arfa.wise-paas.com/apphub/pod-dependency-init-container
+    tag: v1.0.0
+    pullPolicy: IfNotPresent
 
 
 
