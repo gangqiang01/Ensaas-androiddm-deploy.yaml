@@ -25,6 +25,8 @@ spec:
           containerPort: 30001
           protocol: TCP
         env:
+        - name: deployEnv
+          value: {{ .Values.global.env.type }}
         - name: appName
           value: apphub
         - name: urlprefix

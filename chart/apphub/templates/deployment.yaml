@@ -25,6 +25,8 @@ spec:
           containerPort: 8080
           protocol: TCP
         env:
+        - name: deployEnv
+          value: {{ .Values.global.env.type }}
         - name: appName
           value: apphub
         - name: urlprefix
@@ -52,11 +54,11 @@ spec:
               key: ENSAAS_SERVICES
         resources:
           limits:
-            cpu: 0.35     　　
-            memory: 1024M
-            ephemeral-storage: 2048M
+            cpu: 0.3     　　
+            memory: 768M
+            ephemeral-storage: 1024M
           requests:
-            cpu: 0.35
-            memory: 1024M
-            ephemeral-storage: 2048M
+            cpu: 0.3
+            memory: 768M
+            ephemeral-storage: 1024M
 
