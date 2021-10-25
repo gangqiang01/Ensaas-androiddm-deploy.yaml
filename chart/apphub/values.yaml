@@ -54,7 +54,7 @@ global:
     tag: v1.0.1
     pullPolicy: IfNotPresent
   novnc:
-    repository: harbor.arfa.wise-paas.com/androiddm/novnc-ensaas
+    repository: harbor.arfa.wise-paas.com/apphub/novnc-ensaas
     tag: v1.0.1
     pullPolicy: IfNotPresent
   podinit:
