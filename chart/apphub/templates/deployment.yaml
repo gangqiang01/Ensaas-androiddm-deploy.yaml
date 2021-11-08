@@ -54,11 +54,11 @@ spec:
               key: ENSAAS_SERVICES
         resources:
           limits:
-            cpu: 0.3     　　
-            memory: 768M
-            ephemeral-storage: 1024M
+            cpu: 200m     　　
+            memory: 512Mi
+            ephemeral-storage: 1024Mi
           requests:
-            cpu: 0.3
-            memory: 768M
-            ephemeral-storage: 1024M
+            cpu: 200m
+            memory: 512Mi
+            ephemeral-storage: 1024Mi
 
