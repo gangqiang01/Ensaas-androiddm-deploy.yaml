@@ -16,10 +16,16 @@ spec:
     spec:
       imagePullSecrets:
         - name: {{ .Values.imagePullSecrets.name}}
+      volumes:
+       - name: shared-data
+         emptyDir: {}
       containers:
       - name: {{ .Chart.Name }}
         image: {{ .Values.global.androiddm.repository }}:{{ .Values.global.androiddm.tag }}
         imagePullPolicy: {{ .Values.global.androiddm.pullPolicy }}
+        volumeMounts:
+        - name: shared-data
+          mountPath: /root/adv/vnctoken
         ports:
         - name: http
           containerPort: 8080
@@ -61,4 +67,23 @@ spec:
             cpu: 200m
             memory: 512Mi
             ephemeral-storage: 1024Mi
+      - name: novnc
+        image: {{ .Values.global.novnc.repository }}:{{ .Values.global.novnc.tag }}
+        imagePullPolicy: {{ .Values.global.novnc.pullPolicy }}
+        volumeMounts:
+        - name: shared-data
+          mountPath: /root/adv/vnctoken
+        ports:
+        - name: novnc
+          containerPort: 9191
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 0.02    　　
+            memory: 64M
+            ephemeral-storage: 512M
+          requests:
+            cpu: 0.02
+            memory: 64M
+            ephemeral-storage: 512M
 

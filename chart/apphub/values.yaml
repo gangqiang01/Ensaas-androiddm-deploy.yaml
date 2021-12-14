@@ -16,13 +16,24 @@ service:
   port: 80
   targetPort: 8080
 
+novncService:
+  name: novnc
+  label: novnc
+  type: ClusterIP
+  port: 80
+  targetPort: 9191
+
+
 ingress:
   name: apphub-manager
   host: portal-apphub-manager
+novncIngress:
+  name: novnc
+  host: api-novnc
 
 global:
   database:
-    secretName: apphub-eks001-secret
+    secretName: apphub
   ensaasApps:
     apiDccs: 
       externalUrl: http://api-dccs-ensaas.hz.wise-paas.com.cn/v1
@@ -47,7 +58,7 @@ global:
 #docker镜像
   androiddm:
     repository: harbor.arfa.wise-paas.com/apphub/apphub-manager-ensaas
-    tag: v1.0.1
+    tag: v1.0.2
     pullPolicy: IfNotPresent
   astore:
     repository: harbor.arfa.wise-paas.com/apphub/apphub-repo-ensaas
