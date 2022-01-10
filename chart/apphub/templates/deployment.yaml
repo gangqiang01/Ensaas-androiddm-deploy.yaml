@@ -21,8 +21,8 @@ spec:
          emptyDir: {}
       containers:
       - name: {{ .Chart.Name }}
-        image: {{ .Values.global.androiddm.repository }}:{{ .Values.global.androiddm.tag }}
-        imagePullPolicy: {{ .Values.global.androiddm.pullPolicy }}
+        image: {{ .Values.global.manager.repository }}:{{ .Values.global.manager.tag }}
+        imagePullPolicy: {{ .Values.global.manager.pullPolicy }}
         volumeMounts:
         - name: shared-data
           mountPath: /root/adv/vnctoken
