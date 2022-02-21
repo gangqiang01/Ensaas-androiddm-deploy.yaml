@@ -1,5 +1,7 @@
 
-apiVersion: extensions/v1beta1
+{{- $ingressApiIsStable := eq (include "bi.ingress.isStable" .) "true" -}}
+{{- $ingressSupportsPathType := eq (include "bi.ingress.supportsPathType" .) "true" -}}
+apiVersion: {{ include "bi.ingress.apiVersion" . }}
 kind: Ingress
 metadata:
   name: {{ .Values.ingress.name}}
@@ -13,6 +15,17 @@ spec:
   - host: {{ .Values.ingress.host }}{{.Values.global.url.host}}
     http:
       paths:
-      - backend:
+      - path: /
+        {{- if $ingressSupportsPathType }}
+        pathType: {{ .Values.global.ingress.pathType }}
+        {{- end }}
+        backend:
+          {{- if $ingressApiIsStable }}
+          service:
+             name: {{ .Values.service.name }}
+             port: 
+               number: {{ .Values.service.port }}
+          {{- else }}
           serviceName: {{ .Values.service.name }}
           servicePort: {{ .Values.service.port }}
+          {{- end }}
