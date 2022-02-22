@@ -58,7 +58,7 @@ Create the name of the service account to use
 {{/*
 Return the appropriate apiVersion for ingress.
 */}}
-{{- define "bi.ingress.apiVersion" -}}
+{{- define "apphub.ingress.apiVersion" -}}
   {{- if and (.Capabilities.APIVersions.Has "networking.k8s.io/v1") (semverCompare ">= 1.19-0" .Capabilities.KubeVersion.Version) -}}
       {{- print "networking.k8s.io/v1" -}}
   {{- else if .Capabilities.APIVersions.Has "networking.k8s.io/v1beta1" -}}
@@ -71,13 +71,13 @@ Return the appropriate apiVersion for ingress.
 {{/*
 Return if ingress is stable.
 */}}
-{{- define "bi.ingress.isStable" -}}
-  {{- eq (include "bi.ingress.apiVersion" .) "networking.k8s.io/v1" -}}
+{{- define "apphub.ingress.isStable" -}}
+  {{- eq (include "apphub.ingress.apiVersion" .) "networking.k8s.io/v1" -}}
 {{- end -}}
 
 {{/*
 Return if ingress supports pathType.
 */}}
-{{- define "bi.ingress.supportsPathType" -}}
-  {{- or (eq (include "bi.ingress.isStable" .) "true") (and (eq (include "bi.ingress.apiVersion" .) "networking.k8s.io/v1beta1") (semverCompare ">= 1.18-0" .Capabilities.KubeVersion.Version)) -}}
+{{- define "apphub.ingress.supportsPathType" -}}
+  {{- or (eq (include "apphub.ingress.isStable" .) "true") (and (eq (include "apphub.ingress.apiVersion" .) "networking.k8s.io/v1beta1") (semverCompare ">= 1.18-0" .Capabilities.KubeVersion.Version)) -}}
 {{- end -}}

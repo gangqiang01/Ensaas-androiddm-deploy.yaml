@@ -1,7 +1,7 @@
 
-{{- $ingressApiIsStable := eq (include "bi.ingress.isStable" .) "true" -}}
-{{- $ingressSupportsPathType := eq (include "bi.ingress.supportsPathType" .) "true" -}}
-apiVersion: {{ include "bi.ingress.apiVersion" . }}
+{{- $ingressApiIsStable := eq (include "apphub.ingress.isStable" .) "true" -}}
+{{- $ingressSupportsPathType := eq (include "apphub.ingress.supportsPathType" .) "true" -}}
+apiVersion: {{ include "apphub.ingress.apiVersion" . }}
 kind: Ingress
 metadata:
   name: {{ .Values.ingress.name}}
