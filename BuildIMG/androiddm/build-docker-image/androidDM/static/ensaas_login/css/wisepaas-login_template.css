@@ -10,7 +10,7 @@ canvas {
 
 @font-face {
     font-family: NotoSans;
-    src: url('/static/login/css/fonts/NotoSans-Regular.ttf');
+    src: url('/static/ensaas_login/css/fonts/NotoSans-Regular.ttf');
 }
 
 #login-wrapper {
